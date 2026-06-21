@@ -1,5 +1,77 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+
+type Pack = {
+  name: string
+  price: string
+  priceNote: string
+  students: string
+  pitch: string
+  features: string[]
+  highlight?: boolean
+  quote?: boolean
+}
+
+const packs: Pack[] = [
+  {
+    name: 'Starter',
+    price: '449 €',
+    priceNote: '/mois HT',
+    students: "Jusqu'à 100 étudiants",
+    pitch: "L'essentiel pour centraliser le suivi.",
+    features: [
+      'Classes, étudiants, intervenants, modules',
+      'Présences et justifications',
+      'Supports de cours et annonces',
+      'Export des bulletins',
+      'Import de base',
+    ],
+  },
+  {
+    name: 'Pro',
+    price: '849 €',
+    priceNote: '/mois HT',
+    students: "Jusqu'à 300 étudiants",
+    pitch: "L'offre la plus choisie par les établissements.",
+    highlight: true,
+    features: [
+      'Tout Starter, plus :',
+      'Devoirs, diplômes, messagerie',
+      'Suivi alternance & entreprises',
+      'Qualiopi, formulaires de satisfaction',
+      'Facturation, notifications & reporting',
+      'Assistant IA (SAI)',
+    ],
+  },
+  {
+    name: 'Business',
+    price: '1 790 €',
+    priceNote: '/mois HT',
+    students: "Jusqu'à 1 000 étudiants",
+    pitch: 'Pour piloter finances et performance.',
+    features: [
+      'Tout Pro, plus :',
+      'Module finance',
+      'Budgets de formation',
+      'Tableaux de bord avancés',
+    ],
+  },
+  {
+    name: 'Enterprise',
+    price: 'Sur devis',
+    priceNote: 'dès 2 490 €/mois HT',
+    students: 'Étudiants illimités',
+    pitch: 'Pour les groupes et besoins sur mesure.',
+    quote: true,
+    features: [
+      'Tout Business, plus :',
+      'Mode groupe & SSO',
+      'Facturation consolidée & audit',
+      'Branding personnalisé',
+      'CSM dédié & SLA renforcé',
+    ],
+  },
+]
 ---
 <BaseLayout
   title="Bêta — Arrow"
@@ -10,8 +82,8 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 
   <div class="main-container beta-page">
     <div class="cyber-header">
-      <h1 class="cyber-logo">BÊTA</h1>
-      <p class="cyber-tagline">ACCÈS COMPLET OFFERT PENDANT 1 MOIS</p>
+      <h1 class="cyber-logo">BÊTA & TARIFS</h1>
+      <p class="cyber-tagline">1 MOIS OFFERT, PUIS UNE GRILLE CLAIRE</p>
     </div>
 
     <section class="beta-hero card">
@@ -65,6 +137,49 @@ import BaseLayout from '../layouts/BaseLayout.astro'
           <li>Ce n'est pas la bonne étape si vous cherchez immédiatement un projet très large et très spécifique.</li>
         </ul>
       </div>
+    </section>
+
+    <section class="pricing-section">
+      <div class="pricing-head">
+        <p class="eyebrow">Et après la bêta ?</p>
+        <h2>Une grille tarifaire simple, selon votre nombre d'étudiants.</h2>
+        <p>Tarifs hors taxes, facturation mensuelle. La facturation annuelle bénéficie de 10 % de réduction.</p>
+      </div>
+
+      <div class="pricing-grid">
+        {packs.map((pack) => (
+          <article class={`card pricing-card${pack.highlight ? ' pricing-card--highlight' : ''}`}>
+            {pack.highlight && <span class="pricing-badge">Le plus choisi</span>}
+            <header class="pricing-card__head">
+              <h3>{pack.name}</h3>
+              <div class="pricing-price">
+                <strong>{pack.price}</strong>
+                <span>{pack.priceNote}</span>
+              </div>
+              <p class="pricing-students">{pack.students}</p>
+              <p class="pricing-pitch">{pack.pitch}</p>
+            </header>
+            <ul class="pricing-features">
+              {pack.features.map((feature) => (
+                <li>{feature}</li>
+              ))}
+            </ul>
+            <a
+              href="/contact"
+              data-open-modal="betaAccessModal"
+              class={pack.highlight ? 'btn-primary' : 'btn-ghost'}
+              data-track={`pricing_${pack.name.toLowerCase()}`}
+            >
+              {pack.quote ? 'Demander un devis' : 'Demander une démo'}
+            </a>
+          </article>
+        ))}
+      </div>
+
+      <p class="pricing-note">
+        Tous les packs incluent l'accompagnement à l'import de vos données et un hébergement dans l'Union européenne, conforme au RGPD.
+        Une question sur le périmètre ? <a href="/faq" data-track="pricing_faq">Voir la FAQ</a>.
+      </p>
     </section>
 
     <section class="beta-cta">
