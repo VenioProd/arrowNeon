@@ -16,7 +16,8 @@
     "studio:deploy": "sanity deploy",
     "pipeline:generate-post": "tsx scripts/generate-post.ts",
     "pipeline:generate-newsletter": "tsx scripts/generate-newsletter.ts",
-    "pipeline:send-newsletter": "tsx scripts/send-newsletter.ts"
+    "pipeline:send-newsletter": "tsx scripts/send-newsletter.ts",
+    "generate:og": "node scripts/generate-og.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.96.0",
