@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+import { team } from '../data/team'
 ---
 <BaseLayout
   title="À propos — Arrow"
@@ -125,6 +126,30 @@ import BaseLayout from '../layouts/BaseLayout.astro'
         </article>
       </div>
     </section>
+
+    {team.length > 0 && (
+      <section class="about-team">
+        <div class="about-values__header">
+          <p class="eyebrow">L'équipe</p>
+          <h2>Qui construit Arrow.</h2>
+        </div>
+        <div class="team-grid">
+          {team.map((member) => (
+            <article class="team-card card">
+              {member.photo && (
+                <img class="team-photo" src={member.photo} alt={member.name} loading="lazy" decoding="async" width="96" height="96" />
+              )}
+              <h3 class="team-name">{member.name}</h3>
+              <p class="team-role">{member.role}</p>
+              {member.bio && <p class="team-bio">{member.bio}</p>}
+              {member.linkedin && (
+                <a class="team-linkedin" href={member.linkedin} target="_blank" rel="noopener noreferrer" data-track="about_team_linkedin">LinkedIn ↗</a>
+              )}
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
 
     <section class="about-beta card">
       <div>

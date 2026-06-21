@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+import { testimonials, clientLogos } from '../data/testimonials'
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -483,6 +484,37 @@ const jsonLd = {
         <p class="cyber-desc">Pièces, commentaires et preuves utiles retrouvés plus vite.</p>
       </div>
     </div>
+
+    {(testimonials.length > 0 || clientLogos.length > 0) && (
+      <section class="social-proof">
+        <div class="home-section-head home-section-head--compact">
+          <p class="eyebrow">Ils utilisent Arrow</p>
+          <h2>Ce que disent les équipes sur le terrain.</h2>
+        </div>
+
+        {testimonials.length > 0 && (
+          <div class="testimonial-grid">
+            {testimonials.map((item) => (
+              <figure class="testimonial-card card">
+                <blockquote class="testimonial-quote">“{item.quote}”</blockquote>
+                <figcaption class="testimonial-author">
+                  <span class="testimonial-name">{item.author}</span>
+                  <span class="testimonial-role">{item.role}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        )}
+
+        {clientLogos.length > 0 && (
+          <div class="client-logos" aria-label="Établissements qui utilisent Arrow">
+            {clientLogos.map((logo) => (
+              <img class="client-logo" src={logo.src} alt={logo.name} loading="lazy" decoding="async" height="40" />
+            ))}
+          </div>
+        )}
+      </section>
+    )}
 
     <div class="cyber-cta">
       <a href="/tarifs" class="cyber-button" data-track="home_beta_details" style="text-decoration: none; display: inline-block;">Comprendre la bêta</a>
