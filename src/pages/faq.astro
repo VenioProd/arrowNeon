@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+type FaqItem = { q: string; a: string }
+
+const faqs: FaqItem[] = [
+  {
+    q: "À qui s'adresse Arrow ?",
+    a: "Arrow est pensé pour les écoles supérieures privées, les CFA et les organismes de formation qui veulent centraliser le suivi étudiant : absences, notes, bulletins, documents et preuves de suivi dans un même espace.",
+  },
+  {
+    q: "Qu'est-ce que la bêta, et combien de temps dure-t-elle ?",
+    a: "La bêta ouvre un accès complet à Arrow pendant 1 mois, offert. L'objectif est d'utiliser la plateforme dans de vraies conditions sur votre périmètre, pas seulement de voir quelques écrans de démonstration.",
+  },
+  {
+    q: "Combien coûte Arrow après la bêta ?",
+    a: "Arrow propose quatre packs (tarifs HT, facturation mensuelle) : Starter à 449 €/mois pour 100 étudiants, Pro à 849 €/mois pour 300 étudiants (l'offre la plus choisie), Business à 1 790 €/mois pour 1 000 étudiants, et Enterprise sur devis (à partir de 2 490 €/mois) pour un nombre d'étudiants illimité et des besoins sur mesure. La facturation annuelle bénéficie de 10 % de réduction. Le périmètre exact se cadre avec vous pendant la démo.",
+  },
+  {
+    q: "Où sont hébergées nos données ? Arrow est-il conforme au RGPD ?",
+    a: "Vos données sont hébergées dans l'Union européenne (France) et leur traitement est conforme au RGPD. Elles sont utilisées uniquement pour le suivi étudiant de votre établissement. Vous pouvez exercer vos droits à tout moment en écrivant à hey@arr0w.app.",
+  },
+  {
+    q: "Peut-on migrer depuis notre outil actuel ?",
+    a: "Oui. Arrow vous accompagne dans l'import et la reprise de vos données existantes (étudiants, intervenants, modules…) lors de la mise en place, pour que vous ne repartiez pas d'une feuille blanche.",
+  },
+  {
+    q: "Faut-il installer quelque chose ?",
+    a: "Non. Arrow est une plateforme web : il suffit d'un navigateur, sur ordinateur, tablette ou smartphone. Aucune installation ni maintenance technique de votre côté.",
+  },
+  {
+    q: "Quel accompagnement pendant la bêta ?",
+    a: "Pendant le mois de test, vous avez un échange direct avec l'équipe Arrow pour cadrer les usages prioritaires, lever les blocages et faire remonter vos retours, qui orientent les évolutions du produit.",
+  },
+  {
+    q: "Comment commencer ?",
+    a: "Demandez une démo : on part de votre usage réel et, si Arrow répond au bon problème, la bêta peut être activée rapidement dans un cadre simple.",
+  },
+]
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+}
+---
+<BaseLayout
+  title="FAQ — Arrow"
+  description="Questions fréquentes sur Arrow : bêta, tarifs, hébergement et RGPD, migration des données, accompagnement. Le suivi étudiant centralisé pour écoles, CFA et organismes de formation."
+  activePage="faq"
+  jsonLd={jsonLd}
+>
+  <link rel="stylesheet" href="/styles/pages/faq.css" slot="head">
+
+  <div class="main-container faq-page">
+    <div class="cyber-header">
+      <h1 class="cyber-logo">FAQ</h1>
+      <p class="cyber-tagline">LES QUESTIONS QU'ON NOUS POSE LE PLUS SOUVENT</p>
+    </div>
+
+    <section class="faq-list">
+      {faqs.map((item, index) => (
+        <details class="faq-item card" open={index === 0}>
+          <summary class="faq-question">
+            <span>{item.q}</span>
+            <span class="faq-marker" aria-hidden="true"></span>
+          </summary>
+          <p class="faq-answer">{item.a}</p>
+        </details>
+      ))}
+    </section>
+
+    <section class="faq-cta">
+      <div class="card faq-cta__panel">
+        <div>
+          <p class="eyebrow">Une autre question ?</p>
+          <h2>Le plus simple reste d'en parler de vive voix.</h2>
+          <p>On répond à vos questions sur votre contexte réel et on regarde si la bêta a du sens pour vous.</p>
+        </div>
+        <div class="faq-cta__actions">
+          <a href="/contact" data-open-modal="betaAccessModal" class="btn-primary" data-track="faq_demo">Demander une démo</a>
+          <a href="mailto:hey@arr0w.app" class="btn-ghost" data-track="faq_email">Écrire à l'équipe</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

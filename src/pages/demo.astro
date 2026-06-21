@@ -5,6 +5,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
   title="Démo interactive — Arrow"
   description="Explorez Arrow sans vous connecter. Visualisez les 3 espaces de la plateforme : Administration, Intervenant et Étudiant."
   activePage="demo"
+  ogImage="/og/demo.png"
 >
   <link rel="stylesheet" href="/styles/pages/demo.css" slot="head">
 
@@ -1853,6 +1854,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
   </div>
 
   <script>
+    // @ts-nocheck — script de démo (glue DOM vanilla). Typage fin suivi dans ARROW-243.
     // ═══════════════════════════════════════════
     // STATE & UTILS
     // ═══════════════════════════════════════════

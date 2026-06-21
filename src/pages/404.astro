@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+const links = [
+  { href: '/', label: 'Accueil' },
+  { href: '/fonctionnalites', label: 'Fonctionnalités' },
+  { href: '/demo', label: 'Démo' },
+  { href: '/contact', label: 'Demander une démo' },
+]
+---
+<BaseLayout
+  title="Page introuvable — Arrow"
+  description="Cette page n'existe pas ou a été déplacée. Retrouvez l'essentiel d'Arrow : suivi étudiant centralisé pour écoles, CFA et organismes de formation."
+  noindex={true}
+>
+  <div class="main-container" style="padding-bottom: 6rem;">
+    <section class="card" style="max-width: 760px; margin: 8rem auto 0; padding: 2.5rem; text-align: center;">
+      <p class="eyebrow">Erreur 404</p>
+      <h1 style="margin-bottom: 1rem;">
+        <span class="text-primary text-glow">Cette page s'est dispersée.</span>
+      </h1>
+      <p style="max-width: 52ch; margin: 0 auto 2rem; color: var(--muted-foreground);">
+        La page que vous cherchez n'existe pas ou a été déplacée.
+        Pas d'inquiétude — voici par où repartir.
+      </p>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-bottom: 2rem;">
+        {links.map((link) => (
+          <a
+            href={link.href}
+            class="btn-ghost"
+            data-track={`404_link_${link.href === '/' ? 'home' : link.href.replace('/', '')}`}
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+
+      <a href="/" class="btn-primary" data-track="404_home">Retour à l'accueil</a>
+    </section>
+  </div>
+</BaseLayout>
