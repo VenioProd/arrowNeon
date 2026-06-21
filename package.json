@@ -25,7 +25,7 @@
     "@astrojs/react": "^5.0.5",
     "@astrojs/sitemap": "^3.7.2",
     "@portabletext/react": "^6.2.0",
-    "@sanity/client": "^7.22.0",
+    "@sanity/client": "^7.23.0",
     "astro": "^6.3.3",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
@@ -35,11 +35,11 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
-    "@sanity/code-input": "^7.1.0",
-    "@sanity/vision": "^5.25.1",
+    "@sanity/code-input": "^7.1.6",
+    "@sanity/vision": "^6.1.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "sanity": "^5.25.1",
+    "sanity": "^6.1.0",
     "typescript": "^5.9.3"
   },
   "overrides": {
