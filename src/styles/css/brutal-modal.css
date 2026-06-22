@@ -88,53 +88,32 @@
    ============================================ */
 
 .brutal-mode-cta {
-    padding: 20px 50px;
-    font-family: 'League Spartan', sans-serif;
-    font-size: 18px;
-    font-weight: 900;
-    background: rgba(255, 0, 127, 0.15);
-    border: 3px solid #FF007F;
+    padding: 14px 28px;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    font-weight: 600;
+    background: transparent;
+    border: 0.5px solid var(--border);
     border-radius: var(--radius-md);
-    color: #FF007F;
-    letter-spacing: 3px;
+    color: var(--foreground);
+    letter-spacing: 0.01em;
     cursor: pointer;
-    transition: all 0.3s;
-    text-transform: uppercase;
+    transition: border-color var(--transition-base), background var(--transition-base), color var(--transition-base);
     position: relative;
-    overflow: hidden;
     display: inline-flex;
     align-items: center;
-    gap: 15px;
-}
-
-.brutal-mode-cta:before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: #FF007F;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s;
-    z-index: -1;
+    gap: 10px;
 }
 
 .brutal-mode-cta:hover {
-    color: #000;
-    box-shadow: 0 0 40px rgba(255, 0, 127, 0.6);
-    transform: translateY(-2px);
-}
-
-:root[data-theme="light"] .brutal-mode-cta:hover {
-    color: #fff;
-}
-
-.brutal-mode-cta:hover:before {
-    transform: scaleX(1);
+    border-color: var(--primary-30);
+    background: var(--primary-5);
+    color: var(--primary);
 }
 
 .brutal-cta-icon {
-    font-size: 24px;
-    filter: drop-shadow(0 0 8px #FF007F);
+    font-size: 1.1rem;
+    color: var(--primary);
 }
 
 /* ============================================
@@ -157,13 +136,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at center, rgba(0, 217, 255, 0.1) 0%, transparent 70%);
-    animation: brutal-pulse-bg 5s ease-in-out infinite;
-}
-
-@keyframes brutal-pulse-bg {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.6; }
+    background: radial-gradient(circle at center, var(--primary-8, rgba(61, 155, 255, 0.08)) 0%, transparent 70%);
 }
 
 .brutal-hero-content {
@@ -175,7 +148,7 @@
     font-family: 'League Spartan', sans-serif;
     font-size: 14px;
     letter-spacing: 4px;
-    color: #FF007F;
+    color: var(--primary);
     margin-bottom: 20px;
     text-transform: uppercase;
 }
@@ -184,28 +157,19 @@
     font-family: 'League Spartan', sans-serif;
     font-size: 48px;
     font-weight: 900;
-    background: linear-gradient(135deg, #00D9FF 0%, #FF007F 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--card-foreground);
     margin-bottom: 30px;
-    filter: drop-shadow(0 0 40px rgba(0, 217, 255, 0.6));
     line-height: 1.2;
 }
 
 .brutal-hero-subtitle {
     font-size: 20px;
-    color: rgba(0, 217, 255, 0.9);
+    color: var(--muted-foreground);
     margin-bottom: 50px;
     line-height: 1.6;
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
-}
-
-:root[data-theme="light"] .brutal-hero-title,
-:root[data-theme="light"] .brutal-final-title {
-    filter: none;
 }
 
 :root[data-theme="light"] .brutal-hero-subtitle,
@@ -304,11 +268,11 @@
     box-shadow: 0 0 14px color-mix(in srgb, var(--section-accent) 65%, transparent);
 }
 
-/* Rotation des accents Arrow sur les sections */
-.brutal-problems-section     .brutal-section-title { --section-accent: var(--accent-magenta); }
-.brutal-usp-section          .brutal-section-title { --section-accent: var(--primary); }
-.brutal-comparison-section   .brutal-section-title { --section-accent: var(--accent-cyan); }
-.brutal-testimonials-section .brutal-section-title { --section-accent: var(--accent-green); }
+/* Accent unique Arrow sur toutes les sections */
+.brutal-problems-section     .brutal-section-title,
+.brutal-usp-section          .brutal-section-title,
+.brutal-comparison-section   .brutal-section-title,
+.brutal-testimonials-section .brutal-section-title { --section-accent: var(--primary); }
 
 .brutal-section-subtitle {
     text-align: center;
@@ -505,10 +469,6 @@
 }
 
 .brutal-comparison-table thead {
-    background: rgba(0, 217, 255, 0.1);
-}
-
-:root[data-theme="light"] .brutal-comparison-table thead {
     background: var(--primary-5);
 }
 
@@ -516,51 +476,41 @@
     padding: 20px;
     font-family: 'League Spartan', sans-serif;
     font-size: 16px;
-    color: #00D9FF;
+    color: var(--primary);
     letter-spacing: 2px;
-    border: 1px solid rgba(0, 217, 255, 0.3);
+    border: 0.5px solid var(--border);
     text-align: left;
     font-weight: 900;
 }
 
-:root[data-theme="light"] .brutal-comparison-table th,
-:root[data-theme="light"] .brutal-comparison-table td {
-    border-color: var(--border);
-}
-
 .brutal-comparison-table td {
     padding: 18px 20px;
-    border: 1px solid rgba(0, 217, 255, 0.2);
+    border: 0.5px solid var(--border);
     font-size: 14px;
 }
 
 .brutal-comparison-table tr:nth-child(even) {
-    background: rgba(0, 217, 255, 0.03);
+    background: var(--primary-5);
 }
 
 .brutal-feature-name {
     font-weight: 700;
-    color: #00D9FF;
+    color: var(--card-foreground);
     font-size: 15px;
 }
 
 .brutal-old-platform {
-    color: rgba(255, 100, 100, 0.9);
+    color: var(--danger);
     font-style: italic;
 }
 
 .brutal-arrow-platform {
-    color: rgba(0, 255, 100, 0.95);
+    color: var(--success);
     font-weight: 600;
 }
 
-:root[data-theme="light"] .brutal-old-platform,
-:root[data-theme="light"] .brutal-arrow-platform {
-    color: var(--foreground);
-}
-
 .brutal-sarcasm {
-    color: #FF007F;
+    color: var(--muted-foreground);
     font-size: 12px;
     font-style: italic;
     margin-top: 8px;
@@ -587,7 +537,7 @@
 
 .brutal-testimonial-type {
     font-size: 13px;
-    color: #FF007F;
+    color: var(--primary);
     font-weight: 700;
     margin-bottom: 15px;
     text-transform: uppercase;
@@ -597,19 +547,15 @@
 .brutal-testimonial-quote {
     font-size: 16.5px;
     line-height: 1.7;
-    color: rgba(0, 217, 255, 0.9);
+    color: var(--card-foreground);
     margin-bottom: 20px;
     font-style: italic;
 }
 
 .brutal-testimonial-author {
     font-size: 14px;
-    color: #87ceeb;
-    text-align: right;
-}
-
-:root[data-theme="light"] .brutal-testimonial-author {
     color: var(--muted-foreground);
+    text-align: right;
 }
 
 .brutal-testimonial-before {
@@ -618,14 +564,10 @@
 }
 
 .brutal-testimonial-before .brutal-testimonial-type {
-    color: #FF0064;
+    color: var(--muted-foreground);
 }
 
 .brutal-testimonial-before .brutal-testimonial-quote {
-    color: rgba(255, 100, 100, 0.9);
-}
-
-:root[data-theme="light"] .brutal-testimonial-before .brutal-testimonial-quote {
     color: var(--muted-foreground);
 }
 
@@ -634,7 +576,7 @@
    ============================================ */
 
 .brutal-final-cta {
-    background: radial-gradient(circle at center, rgba(0, 217, 255, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle at center, var(--primary-8, rgba(61, 155, 255, 0.08)) 0%, transparent 70%);
     text-align: center;
     padding: 60px 20px;
 }
@@ -643,17 +585,13 @@
     font-family: 'League Spartan', sans-serif;
     font-size: 42px;
     font-weight: 900;
-    background: linear-gradient(135deg, #00D9FF 0%, #FF007F 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--card-foreground);
     margin-bottom: 30px;
-    filter: drop-shadow(0 0 40px rgba(0, 217, 255, 0.6));
 }
 
 .brutal-final-subtitle {
     font-size: 20px;
-    color: rgba(0, 217, 255, 0.8);
+    color: var(--muted-foreground);
     margin-bottom: 40px;
     max-width: 800px;
     margin-left: auto;

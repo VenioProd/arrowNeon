@@ -341,9 +341,16 @@ const jsonLd = {
       </section>
     )}
 
-    <div class="cyber-cta">
-      <a href="/tarifs" class="cyber-button" data-track="home_beta_details" style="text-decoration: none; display: inline-block;">Comprendre la bêta</a>
-    </div>
+    <section class="final-cta">
+      <div class="final-cta__inner">
+        <h2 class="final-cta__title">Prêt à voir une fiche étudiant en vrai ?</h2>
+        <p class="final-cta__lede">Une démo de 20 minutes, sur vos cas.</p>
+        <div class="final-cta__actions">
+          <a href="/contact" data-open-modal="betaAccessModal" class="btn-primary final-cta__primary" data-track="home_demo">Demander une démo</a>
+          <a href="/tarifs" class="btn-ghost" data-track="home_pricing">Voir les tarifs</a>
+        </div>
+      </div>
+    </section>
   </div>
 
   <div
@@ -451,7 +458,7 @@ const jsonLd = {
           </div>
 
           <div style="text-align: center; margin-top: 40px;">
-            <p style="font-size: 28px; color: #FF007F; font-weight: 700;">
+            <p style="font-size: 28px; color: var(--primary); font-weight: 700;">
               Si ça vous parle, Arrow mérite une démo.
             </p>
           </div>
@@ -668,7 +675,7 @@ const jsonLd = {
             suivi étudiant, absences, bulletins, documents et preuves utiles.
           </p>
           <a href="/contact" data-open-modal="betaAccessModal" class="brutal-hero-cta" data-track="home_brutal_demo">Demander une démo</a>
-          <p style="margin-top: 30px; font-size: 14px; color: rgba(0, 217, 255, 0.6);">
+          <p style="margin-top: 30px; font-size: 14px; color: var(--muted-foreground);">
             La bêta reste cadrée, progressive et sans sur-promesse.
           </p>
         </section>
