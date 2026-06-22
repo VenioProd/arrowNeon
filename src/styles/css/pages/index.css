@@ -173,6 +173,8 @@
 /* Côté dispersé — gris, désordonné, sans relief */
 .problem-before {
     align-self: stretch;
+    min-width: 0;
+    box-sizing: border-box;
     padding: clamp(20px, 3vw, 28px);
     border: 0.5px solid var(--border);
     border-radius: var(--radius-lg);
@@ -214,6 +216,7 @@
 /* Côté réuni — la fiche étudiant */
 .problem-after {
     align-self: stretch;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -455,7 +458,7 @@
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
 }
 
@@ -464,6 +467,9 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
     padding: clamp(20px, 2.4vw, 26px);
     background: var(--card);
     border: 0.5px solid var(--border);
@@ -511,12 +517,21 @@
 
 .how-step__peek {
     margin-top: auto;
+    min-width: 0;
+    max-width: 100%;
+}
+
+.how-step__peek .mock-steppeek,
+.how-step__peek .mock-steppeek__body {
+    min-width: 0;
+    max-width: 100%;
 }
 
 /* Réduction des mocks pour tenir dans une colonne sur 3 */
 .how-step__peek .mock-fiche,
 .how-step__peek .mock-alerts,
 .how-step__peek .how-proof {
+    min-width: 0;
     max-width: 100%;
 }
 
@@ -539,6 +554,7 @@
     border: 0.5px solid var(--border);
     border-radius: var(--radius-lg);
     width: 100%;
+    min-width: 0;
     overflow: hidden;
     font-family: var(--font-body);
 }
@@ -651,7 +667,7 @@
 
 .pillars__grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
 }
 
@@ -659,6 +675,9 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
     padding: clamp(20px, 2.2vw, 24px);
     background: var(--card);
     border: 0.5px solid var(--border);
@@ -701,6 +720,8 @@
 /* ── Aperçu produit imbriqué (surface inset) ───────────────────────────────── */
 .pillar__peek {
     margin-top: auto;
+    min-width: 0;
+    max-width: 100%;
     background: var(--background);
     border: 0.5px solid var(--border);
     border-radius: var(--radius-md);
@@ -843,7 +864,7 @@
 
 .audience__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
 }
 
@@ -851,6 +872,8 @@
     display: flex;
     flex-direction: column;
     gap: 14px;
+    min-width: 0;
+    box-sizing: border-box;
     padding: clamp(22px, 2.4vw, 28px);
     background: var(--card);
     border: 0.5px solid var(--border);
@@ -921,7 +944,7 @@
 
 .testimonial-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
     gap: 20px;
 }
 
@@ -1011,5 +1034,48 @@
 @media (max-width: 860px) {
     .testimonial-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* ── Polish mobile (≤ 540px) — rythme vertical, CTA, titres ─────────── */
+@media (max-width: 540px) {
+    /* CTAs hero : pleine largeur, empilés proprement */
+    .hero__ctas {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    .hero__ctas .btn-primary,
+    .hero__ctas .btn-ghost {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Titres de section un cran plus compacts */
+    .problem-title,
+    .how__head h2,
+    .pillars__head h2,
+    .audience__head h2,
+    .social-proof .home-section-head h2 {
+        font-size: clamp(22px, 6.4vw, 28px);
+    }
+
+    /* Resserre légèrement le rythme vertical des sections */
+    .problem-section,
+    .how,
+    .pillars,
+    .audience,
+    .social-proof {
+        padding-top: clamp(32px, 9vw, 44px);
+        padding-bottom: clamp(24px, 6vw, 36px);
+    }
+
+    /* Aperçus produit : un peu d'air en moins, lecture plus dense */
+    .problem-head,
+    .how__head,
+    .pillars__head,
+    .audience__head,
+    .social-proof .home-section-head {
+        margin-bottom: clamp(24px, 7vw, 32px);
     }
 }
