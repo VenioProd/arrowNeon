@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+import FicheEtudiant from '../components/mock/FicheEtudiant.astro'
 import { testimonials, clientLogos } from '../data/testimonials'
 
 const jsonLd = {
@@ -26,64 +27,23 @@ const jsonLd = {
   <link rel="stylesheet" href="/styles/pages/index.css" slot="head">
 
   <div class="main-container home-page">
-    <section class="hero-orbit">
-      <div class="hero-orbit__text">
-        <p class="eyebrow">Pour écoles supérieures, CFA et équipes scolarité</p>
-        <h1>
-          Le suivi étudiant
-          <span class="text-primary text-glow">centralisé</span>
-          pour décider plus vite
-        </h1>
-        <p class="hero-orbit__desc">
-          Arrow réunit absences, notes, bulletins, documents et commentaires dans une vue claire par étudiant,
-          pour aider les équipes pédagogiques et scolarité à suivre, relancer et justifier sans multiplier les exports.
-        </p>
-        <div class="hero-orbit__cta">
-          <a href="/contact" data-open-modal="betaAccessModal" class="btn-primary" data-track="home_demo">Demander une démo</a>
-          <a href="#difference" class="btn-ghost" data-track="home_difference">Voir la différence</a>
-        </div>
-      </div>
-
-      <div class="orbit-system" aria-hidden="true">
-        <div class="orbit-ring"></div>
-        <div class="orbit-ring"></div>
-        <div class="orbit-ring"></div>
-        <div class="orbit-sphere"></div>
-
-        <div class="orbit-card orbit-card--top-left">
-          <div class="orbit-card-value">ABSENCES</div>
-          <div class="orbit-card-label">Alertes</div>
-        </div>
-        <div class="orbit-card orbit-card--top-right">
-          <div class="orbit-card-value">NOTES</div>
-          <div class="orbit-card-label">Bulletins</div>
-        </div>
-        <div class="orbit-card orbit-card--bottom-left">
-          <div class="orbit-card-value">DOCS</div>
-          <div class="orbit-card-label">Preuves</div>
-        </div>
-        <div class="orbit-card orbit-card--bottom-right">
-          <div class="orbit-card-value">SUIVIS</div>
-          <div class="orbit-card-label">Commentaires</div>
-        </div>
-
-        <div class="orbit-cards-grid">
-          <div class="orbit-card">
-            <div class="orbit-card-value">ABSENCES</div>
-            <div class="orbit-card-label">Alertes</div>
+    <section class="hero">
+      <div class="hero__inner">
+        <div class="hero__copy">
+          <p class="hero__eyebrow">Écoles sup · CFA · équipes scolarité</p>
+          <h1 class="hero__title">Chaque étudiant,<br><span class="hero__hl">une seule vue</span> claire.</h1>
+          <p class="hero__lede">Absences, notes, bulletins, documents et commentaires réunis par étudiant. Repérez qui décroche, justifiez en un clic, décidez sans multiplier les exports.</p>
+          <div class="hero__ctas">
+            <a href="/contact" data-open-modal="betaAccessModal" class="btn-primary" data-track="home_demo">Demander une démo</a>
+            <a href="#difference" class="btn-ghost" data-track="home_difference">Voir une fiche étudiant</a>
           </div>
-          <div class="orbit-card">
-            <div class="orbit-card-value">NOTES</div>
-            <div class="orbit-card-label">Bulletins</div>
-          </div>
-          <div class="orbit-card">
-            <div class="orbit-card-value">DOCS</div>
-            <div class="orbit-card-label">Preuves</div>
-          </div>
-          <div class="orbit-card">
-            <div class="orbit-card-value">SUIVIS</div>
-            <div class="orbit-card-label">Commentaires</div>
-          </div>
+          <ul class="hero__trust">
+            <li>RGPD &amp; hébergement FR</li>
+            <li>Mise en route &lt; 1 jour</li>
+          </ul>
+        </div>
+        <div class="hero__visual">
+          <FicheEtudiant />
         </div>
       </div>
     </section>
