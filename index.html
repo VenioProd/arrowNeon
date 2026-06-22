@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arrow - Landing Page Cyberpunk Custom</title>
+    <title>Arrow - Plateforme de gestion educative nouvelle generation</title>
+    <meta name="description" content="Arrow - Plateforme de gestion educative nouvelle generation. Gerez vos eleves, notes, bulletins et alternances avec un systeme moderne et performant.">
+    <meta property="og:title" content="Arrow - Plateforme de gestion educative nouvelle generation">
+    <meta property="og:description" content="Arrow - Plateforme de gestion educative nouvelle generation. Gerez vos eleves, notes, bulletins et alternances avec un systeme moderne et performant.">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/form.css">
     <link rel="stylesheet" href="css/brutal-modal.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/additions.css">
 </head>
 <body>
     <div class="scanlines"></div>
@@ -24,9 +30,11 @@
                 <li class="nav-item"><a href="tarifs.html" class="nav-link">Tarifs</a></li>
                 <li class="nav-item"><a href="a-propos.html" class="nav-link">À propos</a></li>
                 <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                <li class="nav-item"><a href="faq.html" class="nav-link">FAQ</a></li>
                 <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <button class="theme-toggle" id="themeToggle" aria-label="Changer le theme">☀️</button>
+            <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMenu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -34,7 +42,7 @@
         </div>
     </nav>
 
-    <div class="main-container">
+    <main class="main-container">
         <!-- Header -->
         <div class="cyber-header">
             <h1 class="cyber-logo">ARROW</h1>
@@ -42,17 +50,17 @@
         </div>
 
         <!-- HUD Stats Centered Above Cards -->
-        <div class="hud-stats">
+        <div class="hud-stats scroll-reveal">
             <div class="stat-item">
-                <div class="stat-value">99.9%</div>
+                <div class="stat-value" data-count="99.9" data-suffix="%">99.9%</div>
                 <div class="stat-label">du temps éveillé</div>
             </div>
             <div class="stat-item">
-                <div class="stat-value">24/7</div>
+                <div class="stat-value" data-count="24/7">24/7</div>
                 <div class="stat-label">Support</div>
             </div>
             <div class="stat-item">
-                <div class="stat-value">∞</div>
+                <div class="stat-value" data-count="∞">∞</div>
                 <div class="stat-label">Élèves</div>
             </div>
         </div>
@@ -72,7 +80,7 @@
                         <div class="arrow-interface">
                             <!-- Header -->
                             <div class="arrow-header">
-                                <h1 class="arrow-page-title">Gestion des Étudiants</h1>
+                                <h2 class="arrow-page-title">Gestion des Étudiants</h2>
                                 <button class="arrow-add-button">
                                     <span>+</span>
                                     <span>Nouvel(le) étudiant(e)</span>
@@ -848,7 +856,7 @@
             
             <!-- CTA Mode Brutal -->
             <div style="text-align: center; margin-top: 40px;">
-                <button class="brutal-mode-cta" onclick="openModal('brutalModeModal')">
+                <button class="brutal-mode-cta" data-modal-open="brutalModeModal">
                     <span class="brutal-cta-text">PASSER EN MODE BRUTAL</span>
                     <span class="brutal-cta-icon">⚡</span>
                 </button>
@@ -856,7 +864,7 @@
         </div>
 
         <!-- Cards Grid -->
-        <div class="cyber-grid">
+        <div class="cyber-grid scroll-reveal">
             <div class="cyber-card">
                 <div class="cyber-icon">
                     <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
@@ -964,25 +972,154 @@
         </div>
 
         <!-- CTA Button -->
-        <div class="cyber-cta">
+        <div class="cyber-cta scroll-reveal">
             <a href="contact.html" class="cyber-button" style="text-decoration: none; display: inline-block;">Demander une démo</a>
         </div>
-    </div>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section scroll-reveal">
+            <h2 class="testimonials-title">CE QU'ILS EN DISENT</h2>
+            <p class="testimonials-subtitle">Ils ont fait le switch. Ils ne reviendront pas en arrière.</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-delay="0">
+                    <div class="testimonial-quote-mark">"</div>
+                    <p class="testimonial-text">
+                        Depuis Arrow, je génère les bulletins de toute la promo en 30 secondes.
+                        Avant, c'était 3 heures minimum. Un gain de temps incroyable.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">👩‍💼</div>
+                        <div class="testimonial-author-info">
+                            <span class="testimonial-author-name">Marie Lefèvre</span>
+                            <span class="testimonial-author-role">Directrice pédagogique, CFA Paris</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-delay="100">
+                    <div class="testimonial-quote-mark">"</div>
+                    <p class="testimonial-text">
+                        L'interface est tellement intuitive que nos nouveaux collaborateurs sont
+                        opérationnels en 30 minutes. Zéro formation nécessaire.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">👨‍💻</div>
+                        <div class="testimonial-author-info">
+                            <span class="testimonial-author-name">Thomas Mercier</span>
+                            <span class="testimonial-author-role">Responsable admin, École Lyon</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-delay="200">
+                    <div class="testimonial-quote-mark">"</div>
+                    <p class="testimonial-text">
+                        Le module alternance a transformé notre gestion des contrats.
+                        Tout est centralisé, plus besoin de jongler entre 5 fichiers Excel.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">👩‍🏫</div>
+                        <div class="testimonial-author-info">
+                            <span class="testimonial-author-name">Sophie Durand</span>
+                            <span class="testimonial-author-role">Coordinatrice alternance, CFA Bordeaux</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Section -->
+        <section class="trust-section scroll-reveal">
+            <p class="trust-title">Ils nous font confiance</p>
+            <div class="trust-logos">
+                <div class="trust-logo">
+                    <span class="trust-logo-icon">🏫</span>
+                    <span class="trust-logo-name">ÉCOLE PARIS</span>
+                </div>
+                <div class="trust-logo">
+                    <span class="trust-logo-icon">🎓</span>
+                    <span class="trust-logo-name">CFA LYON</span>
+                </div>
+                <div class="trust-logo">
+                    <span class="trust-logo-icon">⚙️</span>
+                    <span class="trust-logo-name">IFAP BORDEAUX</span>
+                </div>
+                <div class="trust-logo">
+                    <span class="trust-logo-icon">📚</span>
+                    <span class="trust-logo-name">CAMPUS MARSEILLE</span>
+                </div>
+                <div class="trust-logo">
+                    <span class="trust-logo-icon">🔬</span>
+                    <span class="trust-logo-name">INSTITUT NANTES</span>
+                </div>
+                <div class="trust-logo">
+                    <span class="trust-logo-icon">💼</span>
+                    <span class="trust-logo-name">VENIO GROUP</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div>
+                    <h3 class="footer-section-title">ARROW</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="footer-link">Accueil</a></li>
+                        <li><a href="fonctionnalites.html" class="footer-link">Fonctionnalités</a></li>
+                        <li><a href="pour-qui.html" class="footer-link">Pour qui ?</a></li>
+                        <li><a href="tarifs.html" class="footer-link">Tarifs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-section-title">RESSOURCES</h3>
+                    <ul class="footer-links">
+                        <li><a href="blog.html" class="footer-link">Blog</a></li>
+                        <li><a href="faq.html" class="footer-link">FAQ</a></li>
+                        <li><a href="a-propos.html" class="footer-link">À propos</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-section-title">LÉGAL</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Mentions légales</a></li>
+                        <li><a href="#" class="footer-link">Politique de confidentialité</a></li>
+                        <li><a href="#" class="footer-link">CGV</a></li>
+                        <li><a href="#" class="footer-link">RGPD</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-section-title">CONTACT</h3>
+                    <ul class="footer-links">
+                        <li><span class="footer-link">contact@arrow-edu.fr</span></li>
+                        <li><span class="footer-link">01 23 45 67 89</span></li>
+                        <li><span class="footer-link">Paris, France 🇫🇷</span></li>
+                        <li><span class="footer-link" style="margin-top: 10px; padding: 5px 10px; border: 1px solid rgba(0,128,255,0.3); display: inline-block;">🛡️ Hébergé en France</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Arrow by Venio. Tous droits réservés. Hébergé en France 🇫🇷 — Conforme RGPD</p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Retour en haut">↑</button>
 
     <!-- Modal Mode Brutal -->
     <div id="brutalModeModal" class="modal-overlay brutal-modal-overlay" style="display: none;">
         <div class="brutal-modal-container">
-            <button class="brutal-modal-close" onclick="closeModal('brutalModeModal')">×</button>
+            <button class="brutal-modal-close" data-modal-close="brutalModeModal" aria-label="Fermer">×</button>
             <div class="brutal-modal-content">
                 <!-- HERO SECTION -->
                 <section class="brutal-hero">
                     <div class="brutal-hero-bg"></div>
                     <div class="brutal-hero-content">
                         <p class="brutal-hero-eyebrow">Enfin une solution du 21ème siècle</p>
-                        <h1 class="brutal-hero-title">
+                        <h2 class="brutal-hero-title">
                             Parce qu'il est temps<br>
                             de sortir de Windows 95
-                        </h1>
+                        </h2>
                         <p class="brutal-hero-subtitle">
                             Vos étudiants ont des smartphones. Vos profs utilisent Netflix.<br>
                             Alors pourquoi votre plateforme de gestion ressemble-t-elle encore à Excel 2003 ?
@@ -1324,5 +1461,6 @@
     <script src="js/main.js"></script>
     <script src="js/form.js"></script>
     <script src="js/components/modal.js"></script>
+    <script src="js/additions.js"></script>
 </body>
 </html>

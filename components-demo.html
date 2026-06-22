@@ -254,13 +254,13 @@
         <div class="section">
             <h2 class="section-title">MODAL</h2>
             
-            <button class="btn-primary" onclick="openModal('demoModal')">
+            <button class="btn-primary" data-modal-open="demoModal">
                 Ouvrir Modal
             </button>
 
             <div id="demoModal" class="modal-overlay" style="display: none;">
                 <div class="modal">
-                    <button class="modal-close" onclick="closeModal('demoModal')">×</button>
+                    <button class="modal-close" data-modal-close="demoModal" aria-label="Fermer">×</button>
                     <h3 class="modal-title">Demander une démo</h3>
                     <div class="modal-content">
                         <p style="margin-bottom: 20px;">

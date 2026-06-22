@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Arrow</title>
+    <meta name="description" content="Questions frequemment posees sur Arrow : tarifs, deploiement, securite, support et bien plus.">
+    <meta property="og:title" content="FAQ - Arrow">
+    <meta property="og:description" content="Questions frequemment posees sur Arrow : tarifs, deploiement, securite, support et bien plus.">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/additions.css">
+    <style>
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .faq-category {
+            margin-bottom: 40px;
+        }
+        .faq-category-title {
+            font-family: 'Orbitron', sans-serif;
+            color: #0080FF;
+            font-size: 24px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .faq-item {
+            border: 2px solid rgba(0,128,255,0.3);
+            margin-bottom: 10px;
+            background: rgba(0,128,255,0.05);
+        }
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #0080FF;
+            font-size: 16px;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s;
+            color: rgba(0,128,255,0.85);
+            line-height: 1.7;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 20px 20px;
+        }
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="scanlines"></div>
+    <div class="geometric-bg" id="geoBg"></div>
+
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-wrapper">
+            <a href="index.html" class="nav-logo">ARROW</a>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Accueil</a></li>
+                <li class="nav-item"><a href="fonctionnalites.html" class="nav-link">Fonctionnalités</a></li>
+                <li class="nav-item"><a href="pour-qui.html" class="nav-link">Pour qui ?</a></li>
+                <li class="nav-item"><a href="tarifs.html" class="nav-link">Tarifs</a></li>
+                <li class="nav-item"><a href="a-propos.html" class="nav-link">À propos</a></li>
+                <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                <li class="nav-item"><a href="faq.html" class="nav-link active">FAQ</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Changer le theme">☀️</button>
+            <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <div class="cyber-header">
+            <h1 class="cyber-logo">FAQ</h1>
+            <p class="cyber-tagline">QUESTIONS FRÉQUEMMENT POSÉES</p>
+        </div>
+
+        <div class="faq-container">
+            <!-- Général -->
+            <section class="faq-category">
+                <h2 class="faq-category-title">GÉNÉRAL</h2>
+                <div class="faq-item">
+                    <div class="faq-question">Qu'est-ce qu'Arrow ?</div>
+                    <div class="faq-answer">Arrow est une plateforme de gestion educative nouvelle generation. Elle centralise la gestion des eleves, notes, bulletins, planning, alternance et communication dans une interface moderne et intuitive.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Arrow est-il adapte a mon type d'etablissement ?</div>
+                    <div class="faq-answer">Arrow s'adapte aux ecoles, formations professionnelles et CFA. La plateforme est modulable pour repondre aux besoins specifiques de chaque structure.</div>
+                </div>
+            </section>
+
+            <!-- Tarifs & Abonnement -->
+            <section class="faq-category">
+                <h2 class="faq-category-title">TARIFS & ABONNEMENT</h2>
+                <div class="faq-item">
+                    <div class="faq-question">Combien coute Arrow ?</div>
+                    <div class="faq-answer">Nos tarifs demarrent a 299€/mois pour le plan Starter (jusqu'a 50 etudiants). Consultez notre page Tarifs pour decouvrir toutes les formules.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Y a-t-il un engagement minimum ?</div>
+                    <div class="faq-answer">Non, nos contrats sont sans engagement. Vous pouvez resilier a tout moment avec un preavis de 30 jours.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Proposez-vous une periode d'essai ?</div>
+                    <div class="faq-answer">Oui, nous proposons une demonstration personnalisee gratuite. Contactez-nous pour planifier la votre.</div>
+                </div>
+            </section>
+
+            <!-- Migration & Déploiement -->
+            <section class="faq-category">
+                <h2 class="faq-category-title">MIGRATION & DÉPLOIEMENT</h2>
+                <div class="faq-item">
+                    <div class="faq-question">Comment se passe la migration depuis une autre plateforme ?</div>
+                    <div class="faq-answer">Notre equipe vous accompagne tout au long de la migration. Nous assurons le transfert de vos donnees existantes et la formation de vos equipes en moins d'une semaine.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Combien de temps prend le deploiement ?</div>
+                    <div class="faq-answer">Le deploiement standard prend 2 a 5 jours ouvrables. Votre equipe est operationnelle des le premier jour grace a notre interface intuitive.</div>
+                </div>
+            </section>
+
+            <!-- Sécurité & Conformité -->
+            <section class="faq-category">
+                <h2 class="faq-category-title">SÉCURITÉ & CONFORMITÉ</h2>
+                <div class="faq-item">
+                    <div class="faq-question">Mes donnees sont-elles securisees ?</div>
+                    <div class="faq-answer">Absolument. Arrow est heberge en France sur des serveurs certifies, avec chiffrement de bout en bout et sauvegardes quotidiennes.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Arrow est-il conforme au RGPD ?</div>
+                    <div class="faq-answer">Oui, Arrow est 100% conforme au RGPD. Nous disposons d'un DPO dedie et d'une politique de confidentialite transparente.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Arrow facilite-t-il la certification Qualiopi ?</div>
+                    <div class="faq-answer">Oui, Arrow integre nativement les exigences Qualiopi et genere automatiquement les documents necessaires a la certification.</div>
+                </div>
+            </section>
+
+            <!-- Support -->
+            <section class="faq-category">
+                <h2 class="faq-category-title">SUPPORT</h2>
+                <div class="faq-item">
+                    <div class="faq-question">Quel support est disponible ?</div>
+                    <div class="faq-answer">Notre equipe de support est disponible 24/7 via chat, email et telephone. Les clients Professional et Enterprise beneficient d'un gestionnaire de compte dedie.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Proposez-vous des formations ?</div>
+                    <div class="faq-answer">Oui, une formation initiale est incluse dans tous les plans. Des sessions de formation continue sont egalement disponibles.</div>
+                </div>
+            </section>
+        </div>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div>
+                    <h3 class="footer-section-title">ARROW</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="footer-link">Accueil</a></li>
+                        <li><a href="fonctionnalites.html" class="footer-link">Fonctionnalités</a></li>
+                        <li><a href="pour-qui.html" class="footer-link">Pour qui ?</a></li>
+                        <li><a href="tarifs.html" class="footer-link">Tarifs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-section-title">RESSOURCES</h3>
+                    <ul class="footer-links">
+                        <li><a href="blog.html" class="footer-link">Blog</a></li>
+                        <li><a href="faq.html" class="footer-link">FAQ</a></li>
+                        <li><a href="a-propos.html" class="footer-link">À propos</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-section-title">LÉGAL</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Mentions légales</a></li>
+                        <li><a href="#" class="footer-link">Politique de confidentialité</a></li>
+                        <li><a href="#" class="footer-link">CGV</a></li>
+                        <li><a href="#" class="footer-link">RGPD</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-section-title">CONTACT</h3>
+                    <ul class="footer-links">
+                        <li><span class="footer-link">contact@arrow-edu.fr</span></li>
+                        <li><span class="footer-link">01 23 45 67 89</span></li>
+                        <li><span class="footer-link">Paris, France 🇫🇷</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Arrow by Venio. Tous droits réservés.</p>
+            </div>
+        </footer>
+    </main>
+
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Retour en haut">↑</button>
+
+    <script src="js/nav.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.parentElement;
+                const wasActive = item.classList.contains('active');
+                // Close all in same category
+                item.parentElement.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!wasActive) item.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

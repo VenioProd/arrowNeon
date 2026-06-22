@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pour qui ? - Arrow</title>
+    <meta name="description" content="Arrow s'adapte a tous les types d'etablissements : ecoles, formations professionnelles et CFA. Decouvrez nos solutions.">
+    <meta property="og:title" content="Pour qui ? - Arrow">
+    <meta property="og:description" content="Arrow s'adapte a tous les types d'etablissements : ecoles, formations professionnelles et CFA. Decouvrez nos solutions.">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/additions.css">
 </head>
 <body>
     <div class="scanlines"></div>
@@ -23,9 +29,11 @@
                 <li class="nav-item"><a href="tarifs.html" class="nav-link">Tarifs</a></li>
                 <li class="nav-item"><a href="a-propos.html" class="nav-link">À propos</a></li>
                 <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                <li class="nav-item"><a href="faq.html" class="nav-link">FAQ</a></li>
                 <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <button class="theme-toggle" id="themeToggle" aria-label="Changer le theme">☀️</button>
+            <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMenu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -33,8 +41,8 @@
         </div>
     </nav>
 
-    <div class="main-container">
-        <div class="cyber-header">
+    <main class="main-container">
+        <div class="cyber-header scroll-reveal">
             <h1 class="cyber-logo">POUR QUI ?</h1>
             <p class="cyber-tagline">ARROW S'ADAPTE À TOUS LES TYPES D'ÉTABLISSEMENTS</p>
         </div>
@@ -106,10 +114,55 @@
                 </div>
             </div>
         </div>
-    </div>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div>
+                    <h3 class="footer-section-title">ARROW</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="footer-link">Accueil</a></li>
+                        <li><a href="fonctionnalites.html" class="footer-link">Fonctionnalités</a></li>
+                        <li><a href="pour-qui.html" class="footer-link">Pour qui ?</a></li>
+                        <li><a href="tarifs.html" class="footer-link">Tarifs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-section-title">RESSOURCES</h3>
+                    <ul class="footer-links">
+                        <li><a href="blog.html" class="footer-link">Blog</a></li>
+                        <li><a href="faq.html" class="footer-link">FAQ</a></li>
+                        <li><a href="a-propos.html" class="footer-link">À propos</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-section-title">LÉGAL</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Mentions légales</a></li>
+                        <li><a href="#" class="footer-link">Politique de confidentialité</a></li>
+                        <li><a href="#" class="footer-link">CGV</a></li>
+                        <li><a href="#" class="footer-link">RGPD</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-section-title">CONTACT</h3>
+                    <ul class="footer-links">
+                        <li><span class="footer-link">contact@arrow-edu.fr</span></li>
+                        <li><span class="footer-link">01 23 45 67 89</span></li>
+                        <li><span class="footer-link">Paris, France 🇫🇷</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Arrow by Venio. Tous droits réservés.</p>
+            </div>
+        </footer>
+    </main>
 
     <script src="js/nav.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/additions.js"></script>
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Retour en haut">↑</button>
 </body>
 </html>
 

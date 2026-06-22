@@ -85,17 +85,23 @@ function initCardTiltEffect() {
 
 // Subtle parallax effect for background shapes
 function initParallaxEffect() {
+    let ticking = false;
     document.addEventListener('mousemove', (e) => {
-        const shapes = document.querySelectorAll('.geo-shape');
-        const x = e.clientX / window.innerWidth;
-        const y = e.clientY / window.innerHeight;
-        
-        shapes.forEach((shape, index) => {
-            const depth = (index % 5 + 1) * 3;
-            const moveX = (x - 0.5) * depth;
-            const moveY = (y - 0.5) * depth;
-            
-            shape.style.transform += ` translate(${moveX}px, ${moveY}px)`;
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+            const shapes = document.querySelectorAll('.geo-shape');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+
+            shapes.forEach((shape, index) => {
+                const depth = (index % 5 + 1) * 3;
+                const moveX = (x - 0.5) * depth;
+                const moveY = (y - 0.5) * depth;
+
+                shape.style.transform += ` translate(${moveX}px, ${moveY}px)`;
+            });
+            ticking = false;
         });
     });
 }
@@ -195,5 +201,34 @@ function initComparisonSlider() {
         resizeTimeout = setTimeout(() => {
             createMatrixRain();
         }, 250);
+    });
+
+    // Keyboard support
+    handle.setAttribute('tabindex', '0');
+    handle.setAttribute('role', 'slider');
+    handle.setAttribute('aria-label', 'Curseur de comparaison');
+    handle.setAttribute('aria-valuemin', '0');
+    handle.setAttribute('aria-valuemax', '100');
+    handle.setAttribute('aria-valuenow', '50');
+
+    handle.addEventListener('keydown', (e) => {
+        const rect = slider.getBoundingClientRect();
+        const currentStyle = getComputedStyle(handle);
+        const currentLeft = parseFloat(currentStyle.getPropertyValue('--slider-position')) || 50;
+        let newPosition = currentLeft;
+
+        if (e.key === 'ArrowLeft') {
+            newPosition = Math.max(0, currentLeft - 2);
+            e.preventDefault();
+        } else if (e.key === 'ArrowRight') {
+            newPosition = Math.min(100, currentLeft + 2);
+            e.preventDefault();
+        }
+
+        if (newPosition !== currentLeft) {
+            const pixelPosition = (newPosition / 100) * rect.width + rect.left;
+            updateSliderPosition(pixelPosition);
+            handle.setAttribute('aria-valuenow', Math.round(newPosition));
+        }
     });
 }

@@ -8,8 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Toggle mobile menu
     if (navToggle) {
         navToggle.addEventListener('click', function() {
-            navToggle.classList.toggle('active');
+            const isOpen = navToggle.classList.toggle('active');
             navMenu.classList.toggle('active');
+            navToggle.setAttribute('aria-expanded', isOpen);
+            navToggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
         });
     }
 
@@ -19,6 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (window.innerWidth <= 1024) {
                 navToggle.classList.remove('active');
                 navMenu.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+                navToggle.setAttribute('aria-label', 'Ouvrir le menu');
             }
         });
     });

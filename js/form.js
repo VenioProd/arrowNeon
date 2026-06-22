@@ -10,7 +10,10 @@
   'use strict';
 
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  var PHONE_RE = /^[\d\s+\-.()]{6,20}$/;
   var HONEYPOT_NAME = '_hp';
+  var NOM_MIN = 2;
+  var MESSAGE_MIN = 10;
 
   function getEndpoint() {
     var cfg = window.ARROW_CONFIG || {};
@@ -114,29 +117,40 @@
     return data;
   }
 
-  // Validation client : symétrique du backend (api/contact.js).
+  // Validation client : symétrique du backend (api/contact.js), enrichie des
+  // contrôles de format hérités de l'audit (longueur min, format téléphone).
   function validate(form, data) {
     var errors = [];
     var firstInvalid = null;
+    var isContact = data.formType !== 'inscription';
 
-    var required =
-      data.formType === 'inscription'
-        ? ['email']
-        : ['nom', 'email', 'etablissement', 'type', 'message'];
+    function flag(name, message) {
+      errors.push(message);
+      if (!firstInvalid) firstInvalid = (form.elements && form.elements[name]) || null;
+    }
+
+    var required = isContact
+      ? ['nom', 'email', 'etablissement', 'type', 'message']
+      : ['email'];
 
     required.forEach(function (name) {
       var field = form.elements[name];
       // Seuls les champs présents dans le markup sont vérifiés.
       if (!field) return;
-      if (!data[name]) {
-        errors.push(labelFor(form, name) + ' : champ requis');
-        if (!firstInvalid) firstInvalid = field;
-      }
+      if (!data[name]) flag(name, labelFor(form, name) + ' : champ requis');
     });
 
     if (data.email && !EMAIL_RE.test(data.email)) {
-      errors.push('Adresse e-mail invalide');
-      if (!firstInvalid) firstInvalid = form.elements.email || null;
+      flag('email', 'Adresse e-mail invalide');
+    }
+    if (isContact && data.nom && data.nom.length < NOM_MIN) {
+      flag('nom', 'Nom : au moins ' + NOM_MIN + ' caractères');
+    }
+    if (isContact && data.message && data.message.length < MESSAGE_MIN) {
+      flag('message', 'Message : au moins ' + MESSAGE_MIN + ' caractères');
+    }
+    if (data.telephone && !PHONE_RE.test(data.telephone)) {
+      flag('telephone', 'Numéro de téléphone invalide');
     }
 
     return { valid: errors.length === 0, errors: errors, firstInvalid: firstInvalid };

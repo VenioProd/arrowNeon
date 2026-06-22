@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page non trouvee - Arrow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            color: #fff;
+            font-family: 'Rajdhani', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Scanlines overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 128, 255, 0.03) 2px,
+                rgba(0, 128, 255, 0.03) 4px
+            );
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* Subtle background grid */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(ellipse at 50% 50%, rgba(0, 128, 255, 0.08) 0%, transparent 70%),
+                linear-gradient(rgba(0, 128, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 128, 255, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 60px 60px, 60px 60px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Giant 404 with glitch */
+        .glitch {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(8rem, 20vw, 16rem);
+            font-weight: 900;
+            color: #fff;
+            position: relative;
+            display: inline-block;
+            text-shadow:
+                0 0 20px rgba(0, 128, 255, 0.8),
+                0 0 40px rgba(0, 128, 255, 0.4),
+                0 0 80px rgba(0, 128, 255, 0.2);
+            letter-spacing: 0.1em;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: '404';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Orbitron', sans-serif;
+            font-size: inherit;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+        }
+
+        .glitch::before {
+            color: #00D9FF;
+            z-index: -1;
+            animation: glitch-cyan 3s infinite linear alternate-reverse;
+            clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+        }
+
+        .glitch::after {
+            color: #FF007F;
+            z-index: -2;
+            animation: glitch-magenta 2s infinite linear alternate-reverse;
+            clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+        }
+
+        @keyframes glitch-cyan {
+            0% { transform: translate(0); }
+            10% { transform: translate(-3px, -2px); }
+            20% { transform: translate(3px, 1px); }
+            30% { transform: translate(-1px, 3px); }
+            40% { transform: translate(2px, -1px); }
+            50% { transform: translate(-2px, 2px); }
+            60% { transform: translate(4px, -3px); }
+            70% { transform: translate(-3px, 1px); }
+            80% { transform: translate(1px, -2px); }
+            90% { transform: translate(-2px, 3px); }
+            100% { transform: translate(2px, -1px); }
+        }
+
+        @keyframes glitch-magenta {
+            0% { transform: translate(0); }
+            10% { transform: translate(2px, 3px); }
+            20% { transform: translate(-3px, -1px); }
+            30% { transform: translate(1px, -2px); }
+            40% { transform: translate(-2px, 3px); }
+            50% { transform: translate(3px, -2px); }
+            60% { transform: translate(-1px, 1px); }
+            70% { transform: translate(2px, -3px); }
+            80% { transform: translate(-4px, 2px); }
+            90% { transform: translate(3px, -1px); }
+            100% { transform: translate(-1px, 2px); }
+        }
+
+        .subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 700;
+            color: #0080FF;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            margin-top: 1rem;
+            text-shadow: 0 0 20px rgba(0, 128, 255, 0.6);
+        }
+
+        .message {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            font-weight: 400;
+            color: rgba(135, 206, 235, 0.7);
+            margin-top: 1.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        /* Cyber button */
+        .cyber-btn {
+            display: inline-block;
+            margin-top: 2.5rem;
+            padding: 14px 40px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #0080FF;
+            background: transparent;
+            border: 2px solid #0080FF;
+            clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+            text-decoration: none;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .cyber-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 128, 255, 0.15);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .cyber-btn:hover {
+            color: #fff;
+            border-color: #00D9FF;
+            box-shadow:
+                0 0 20px rgba(0, 128, 255, 0.8),
+                0 0 40px rgba(0, 128, 255, 0.4),
+                inset 0 0 40px rgba(0, 128, 255, 0.2);
+            text-shadow: 0 0 10px rgba(0, 128, 255, 0.8);
+        }
+
+        .cyber-btn:hover::before {
+            left: 0;
+        }
+
+        /* Decorative corner lines */
+        .corner {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            z-index: 2;
+        }
+
+        .corner--tl {
+            top: 20px;
+            left: 20px;
+            border-top: 2px solid rgba(0, 128, 255, 0.3);
+            border-left: 2px solid rgba(0, 128, 255, 0.3);
+        }
+
+        .corner--tr {
+            top: 20px;
+            right: 20px;
+            border-top: 2px solid rgba(0, 128, 255, 0.3);
+            border-right: 2px solid rgba(0, 128, 255, 0.3);
+        }
+
+        .corner--bl {
+            bottom: 20px;
+            left: 20px;
+            border-bottom: 2px solid rgba(0, 128, 255, 0.3);
+            border-left: 2px solid rgba(0, 128, 255, 0.3);
+        }
+
+        .corner--br {
+            bottom: 20px;
+            right: 20px;
+            border-bottom: 2px solid rgba(0, 128, 255, 0.3);
+            border-right: 2px solid rgba(0, 128, 255, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .subtitle {
+                letter-spacing: 0.25em;
+            }
+
+            .cyber-btn {
+                padding: 12px 30px;
+                font-size: 0.8rem;
+            }
+
+            .corner {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="corner corner--tl"></div>
+    <div class="corner corner--tr"></div>
+    <div class="corner corner--bl"></div>
+    <div class="corner corner--br"></div>
+
+    <div class="container">
+        <div class="glitch">404</div>
+        <div class="subtitle">SIGNAL PERDU</div>
+        <p class="message">La page que vous cherchez n'existe pas ou a ete deplacee.</p>
+        <a href="index.html" class="cyber-btn">Retour a l'accueil</a>
+    </div>
+</body>
+</html>

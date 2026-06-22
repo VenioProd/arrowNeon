@@ -165,7 +165,8 @@
     font-family: 'Orbitron', sans-serif;
     font-size: 48px;
     font-weight: 900;
-    background: linear-gradient(135deg, #00D9FF 0%, #FF007F 100%);
+    color: var(--color-accent-cyan);
+    background: linear-gradient(135deg, var(--color-accent-cyan) 0%, var(--color-accent-magenta) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -550,7 +551,8 @@
     font-family: 'Orbitron', sans-serif;
     font-size: 42px;
     font-weight: 900;
-    background: linear-gradient(135deg, #00D9FF 0%, #FF007F 100%);
+    color: var(--color-accent-cyan);
+    background: linear-gradient(135deg, var(--color-accent-cyan) 0%, var(--color-accent-magenta) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
