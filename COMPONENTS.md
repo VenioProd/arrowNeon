@@ -18,8 +18,11 @@ css/
     divider.css       # Divider
     tooltip.css       # Tooltip
     footer.css        # Footer
+    responsive.css    # Media queries transverses (boutons, cards, modal…)
   components.css      # Import de tous les composants
 ```
+
+> Tokens, palette, typographie et effets : voir [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md) et [css/tokens.css](css/tokens.css).
 
 ## Utilisation
 

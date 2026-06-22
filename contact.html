@@ -53,7 +53,9 @@
                 <p>Remplissez le formulaire ci-dessous ou prenez directement rendez-vous pour une démonstration personnalisée.</p>
             </div>
 
-            <form class="form-container" id="contactForm">
+            <div data-arrow-feedback aria-live="polite" style="max-width: 700px; margin: 0 auto 20px;"></div>
+
+            <form class="form-container" id="contactForm" data-arrow-form="contact">
                 <div class="form-group">
                     <label for="nom" class="form-label">Nom complet *</label>
                     <input type="text" id="nom" name="nom" class="form-input" required>
@@ -147,6 +149,7 @@
 
     <script src="js/nav.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/config.js"></script>
     <script src="js/form.js"></script>
     <script src="js/additions.js"></script>
     <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Retour en haut">↑</button>
