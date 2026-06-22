@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+import FicheEtudiant from '../components/mock/FicheEtudiant.astro'
+import AlertsList from '../components/mock/AlertsList.astro'
+import StepPeek from '../components/mock/StepPeek.astro'
 import { testimonials, clientLogos } from '../data/testimonials'
 
 const jsonLd = {
@@ -26,64 +29,23 @@ const jsonLd = {
   <link rel="stylesheet" href="/styles/pages/index.css" slot="head">
 
   <div class="main-container home-page">
-    <section class="hero-orbit">
-      <div class="hero-orbit__text">
-        <p class="eyebrow">Pour écoles supérieures, CFA et équipes scolarité</p>
-        <h1>
-          Le suivi étudiant
-          <span class="text-primary text-glow">centralisé</span>
-          pour décider plus vite
-        </h1>
-        <p class="hero-orbit__desc">
-          Arrow réunit absences, notes, bulletins, documents et commentaires dans une vue claire par étudiant,
-          pour aider les équipes pédagogiques et scolarité à suivre, relancer et justifier sans multiplier les exports.
-        </p>
-        <div class="hero-orbit__cta">
-          <a href="/contact" data-open-modal="betaAccessModal" class="btn-primary" data-track="home_demo">Demander une démo</a>
-          <a href="#difference" class="btn-ghost" data-track="home_difference">Voir la différence</a>
-        </div>
-      </div>
-
-      <div class="orbit-system" aria-hidden="true">
-        <div class="orbit-ring"></div>
-        <div class="orbit-ring"></div>
-        <div class="orbit-ring"></div>
-        <div class="orbit-sphere"></div>
-
-        <div class="orbit-card orbit-card--top-left">
-          <div class="orbit-card-value">ABSENCES</div>
-          <div class="orbit-card-label">Alertes</div>
-        </div>
-        <div class="orbit-card orbit-card--top-right">
-          <div class="orbit-card-value">NOTES</div>
-          <div class="orbit-card-label">Bulletins</div>
-        </div>
-        <div class="orbit-card orbit-card--bottom-left">
-          <div class="orbit-card-value">DOCS</div>
-          <div class="orbit-card-label">Preuves</div>
-        </div>
-        <div class="orbit-card orbit-card--bottom-right">
-          <div class="orbit-card-value">SUIVIS</div>
-          <div class="orbit-card-label">Commentaires</div>
-        </div>
-
-        <div class="orbit-cards-grid">
-          <div class="orbit-card">
-            <div class="orbit-card-value">ABSENCES</div>
-            <div class="orbit-card-label">Alertes</div>
+    <section class="hero">
+      <div class="hero__inner">
+        <div class="hero__copy">
+          <p class="hero__eyebrow">Écoles sup · CFA · équipes scolarité</p>
+          <h1 class="hero__title">Chaque étudiant,<br><span class="hero__hl">une seule vue</span> claire.</h1>
+          <p class="hero__lede">Absences, notes, bulletins, documents et commentaires réunis par étudiant. Repérez qui décroche, justifiez en un clic, décidez sans multiplier les exports.</p>
+          <div class="hero__ctas">
+            <a href="/contact" data-open-modal="betaAccessModal" class="btn-primary" data-track="home_demo">Demander une démo</a>
+            <a href="#difference" class="btn-ghost" data-track="home_difference">Voir une fiche étudiant</a>
           </div>
-          <div class="orbit-card">
-            <div class="orbit-card-value">NOTES</div>
-            <div class="orbit-card-label">Bulletins</div>
-          </div>
-          <div class="orbit-card">
-            <div class="orbit-card-value">DOCS</div>
-            <div class="orbit-card-label">Preuves</div>
-          </div>
-          <div class="orbit-card">
-            <div class="orbit-card-value">SUIVIS</div>
-            <div class="orbit-card-label">Commentaires</div>
-          </div>
+          <ul class="hero__trust">
+            <li>RGPD &amp; hébergement FR</li>
+            <li>Mise en route &lt; 1 jour</li>
+          </ul>
+        </div>
+        <div class="hero__visual">
+          <FicheEtudiant />
         </div>
       </div>
     </section>
@@ -103,317 +65,36 @@ const jsonLd = {
       </div>
     </div>
 
-    <div class="comparison-section" id="difference">
-      <div class="comparison-header">
-        <h2 class="comparison-title">
-          <span class="comparison-title__old">SUIVI DISPERSÉ</span> vs <span class="comparison-title__arrow">ARROW</span>
-        </h2>
-        <p class="comparison-instruction">Comparez une vue dispersée et Arrow</p>
+    <section class="problem-section" id="difference">
+      <div class="problem-head">
+        <p class="problem-eyebrow">Le problème</p>
+        <h2 class="problem-title">Vos infos étudiants sont éclatées dans 5 outils.</h2>
+        <p class="problem-subtitle">Arrow les réunit dans une seule vue par étudiant — absences, notes, bulletins et documents au même endroit.</p>
       </div>
 
-      <div class="comparison-slider-wrapper">
-        <div class="comparison-slider" id="comparisonSlider" data-track-view="comparison_slider">
-          <div class="comparison-side side-old-platform">
-            <div class="old-platform-interface">
-              <div class="hp-navbar">
-                <div class="hp-nav-item">Cours</div>
-                <div class="hp-nav-item">Notation</div>
-                <div class="hp-nav-item">Enseignements</div>
-                <div class="hp-nav-item">QCM</div>
-                <div class="hp-nav-item">Assiduité</div>
-                <div class="hp-nav-item" style="background: #8a5a5a;">Étudiants</div>
-              </div>
-
-              <div class="hp-toolbar">
-                <span style="font-size: 11px; color: #666;">Liste :</span>
-                <select class="hp-dropdown">
-                  <option>Saisie du nom</option>
-                </select>
-                <select class="hp-dropdown">
-                  <option>Institut Formation (P27) &gt; Scolaire</option>
-                </select>
-                <span style="font-size: 11px; color: #666; margin-left: 20px;">au :</span>
-                <select class="hp-dropdown">
-                  <option>Aujourd'hui</option>
-                </select>
-                <div class="hp-search-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" focusable="false">
-                    <circle cx="11" cy="11" r="6" />
-                    <path d="m16 16 4 4" />
-                  </svg>
-                </div>
-              </div>
-
-              <div class="hp-table-container">
-                <table class="hp-table">
-                  <thead>
-                    <tr>
-                      <th>Nom</th>
-                      <th>Né(e) le</th>
-                      <th>S.</th>
-                      <th>E-mail</th>
-                      <th colspan="2" style="text-align: center;">Heures manquées</th>
-                      <th>Entrée</th>
-                      <th>Sortie</th>
-                    </tr>
-                    <tr style="background: #fafafa;">
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                      <th style="font-weight: 400; font-size: 10px;">Toutes</th>
-                      <th style="font-weight: 400; font-size: 10px;">Mes cours</th>
-                      <th></th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><span class="hp-icon hp-icon-pink">▼</span> MARTIN Sophie</td>
-                      <td>21/08/2006</td>
-                      <td><span class="hp-icon hp-icon-pink">♀</span></td>
-                      <td><span class="hp-email-link">sophie.martin@email.com</span></td>
-                      <td>21h00 (7)</td>
-                      <td>03h00 (1)</td>
-                      <td><span class="hp-status">Début d'année</span></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td><span class="hp-icon hp-icon-pink">▼</span> DUBOIS Marc</td>
-                      <td>05/10/2006</td>
-                      <td><span class="hp-icon hp-icon-blue">♂</span></td>
-                      <td><span class="hp-email-link">marc.dubois@email.com</span></td>
-                      <td>101h00 (34)</td>
-                      <td>18h00 (6)</td>
-                      <td><span class="hp-status">Début d'année</span></td>
-                      <td>14/11/2025</td>
-                    </tr>
-                    <tr>
-                      <td><span class="hp-icon hp-icon-pink">▼</span> BERNARD Lucas</td>
-                      <td>19/09/2007</td>
-                      <td><span class="hp-icon hp-icon-blue">♂</span></td>
-                      <td><span class="hp-email-link">lucas.bernard@email.com</span></td>
-                      <td>43h00 (15)</td>
-                      <td>06h00 (2)</td>
-                      <td><span class="hp-status">Début d'année</span></td>
-                      <td>30/11/2025</td>
-                    </tr>
-                    <tr>
-                      <td><span class="hp-icon hp-icon-pink">▼</span> PETIT Thomas</td>
-                      <td>08/01/2007</td>
-                      <td><span class="hp-icon hp-icon-blue">♂</span></td>
-                      <td><span class="hp-email-link">thomas.petit@email.com</span></td>
-                      <td>38h00 (13)</td>
-                      <td>06h00 (2)</td>
-                      <td><span class="hp-status">Début d'année</span></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td><span class="hp-icon hp-icon-pink">▼</span> ROBERT Julie</td>
-                      <td>12/10/2007</td>
-                      <td><span class="hp-icon hp-icon-pink">♀</span></td>
-                      <td><span class="hp-email-link">julie.robert@email.com</span></td>
-                      <td>60h00 (20)</td>
-                      <td>06h00 (2)</td>
-                      <td><span class="hp-status">Début d'année</span></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td><span class="hp-icon hp-icon-pink">▼</span> RICHARD Paul</td>
-                      <td>19/08/2004</td>
-                      <td><span class="hp-icon hp-icon-blue">♂</span></td>
-                      <td><span class="hp-email-link">paul.richard@email.com</span></td>
-                      <td>35h00 (12)</td>
-                      <td>03h00 (1)</td>
-                      <td><span class="hp-status">Début d'année</span></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td><span class="hp-icon hp-icon-pink">▼</span> DURAND Emma</td>
-                      <td>22/06/2007</td>
-                      <td><span class="hp-icon hp-icon-pink">♀</span></td>
-                      <td><span class="hp-email-link">emma.durand@email.com</span></td>
-                      <td>06h00 (2)</td>
-                      <td>00h00</td>
-                      <td><span class="hp-status">Début d'année</span></td>
-                      <td>30/11/2025</td>
-                    </tr>
-                    <tr>
-                      <td><span class="hp-icon hp-icon-pink">▼</span> MOREAU Léo</td>
-                      <td>21/10/2006</td>
-                      <td><span class="hp-icon hp-icon-blue">♂</span></td>
-                      <td><span class="hp-email-link">leo.moreau@email.com</span></td>
-                      <td>101h00 (34)</td>
-                      <td>18h00 (6)</td>
-                      <td><span class="hp-status">Début d'année</span></td>
-                      <td>14/11/2025</td>
-                    </tr>
-                    <tr>
-                      <td><span class="hp-icon hp-icon-pink">▼</span> SIMON Chloé</td>
-                      <td>19/11/2007</td>
-                      <td><span class="hp-icon hp-icon-pink">♀</span></td>
-                      <td><span class="hp-email-link">chloe.simon@email.com</span></td>
-                      <td>20h00 (7)</td>
-                      <td>00h00</td>
-                      <td><span class="hp-status">Début d'année</span></td>
-                      <td>30/11/2025</td>
-                    </tr>
-                    <tr>
-                      <td><span class="hp-icon hp-icon-pink">▼</span> LAURENT Hugo</td>
-                      <td>31/05/2007</td>
-                      <td><span class="hp-icon hp-icon-blue">♂</span></td>
-                      <td><span class="hp-email-link">hugo.laurent@email.com</span></td>
-                      <td>98h00 (33)</td>
-                      <td>21h00 (7)</td>
-                      <td><span class="hp-status">Début d'année</span></td>
-                      <td>14/11/2025</td>
-                    </tr>
-                    <tr>
-                      <td><span class="hp-icon hp-icon-pink">▼</span> LEFEVRE Camille</td>
-                      <td>18/11/2007</td>
-                      <td><span class="hp-icon hp-icon-pink">♀</span></td>
-                      <td><span class="hp-email-link">camille.lefevre@email.com</span></td>
-                      <td>21h00 (7)</td>
-                      <td>03h00 (1)</td>
-                      <td><span class="hp-status">Début d'année</span></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td><span class="hp-icon hp-icon-pink">▼</span> ANDRE Maxime</td>
-                      <td>19/08/2005</td>
-                      <td><span class="hp-icon hp-icon-blue">♂</span></td>
-                      <td><span class="hp-email-link">maxime.andre@email.com</span></td>
-                      <td>51h00 (17)</td>
-                      <td>18h00 (6)</td>
-                      <td><span class="hp-status">Début d'année</span></td>
-                      <td></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+      <div class="problem-contrast">
+        <div class="problem-before" aria-label="Aujourd'hui : informations dispersées">
+          <span class="problem-side-label">Aujourd'hui — dispersé</span>
+          <div class="scatter">
+            <span class="scatter-chip">Tableur</span>
+            <span class="scatter-chip">Emails</span>
+            <span class="scatter-chip">Module absences</span>
+            <span class="scatter-chip">PDF bulletins</span>
+            <span class="scatter-chip">Notes</span>
           </div>
+        </div>
 
-          <div class="comparison-side side-arrow">
-            <div class="arrow-interface">
+        <div class="problem-arrow" aria-hidden="true">
+          <svg viewBox="0 0 48 24" focusable="false" width="48" height="24">
+            <path d="M2 12h40M34 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
 
-              <!-- Barre de navigation Arrow — thème clair fidèle -->
-              <div class="arrow-mini-nav">
-                <div class="arrow-mini-brand">
-                  <span class="arrow-mini-logo">ARROW</span>
-                  <span class="arrow-mini-badge">SUPER ADMIN</span>
-                  <span class="arrow-mini-school">ARROW DEMO CAMPUS</span>
-                </div>
-                <div class="arrow-mini-tabs">
-                  <span class="arrow-mini-tab">MON ESPACE</span>
-                  <span class="arrow-mini-tab arrow-mini-tab--active">PLANNING</span>
-                  <span class="arrow-mini-tab">PÉDAGOGIE</span>
-                  <span class="arrow-mini-tab">UTILISATEURS</span>
-                  <span class="arrow-mini-tab">COMMUNICATION</span>
-                  <span class="arrow-mini-tab">SUIVIS</span>
-                  <span class="arrow-mini-tab">PARAMÈTRES</span>
-                </div>
-              </div>
-
-              <!-- Dashboard Arrow — thème blanc -->
-              <div class="arrow-page-content">
-                <p class="arrow-greeting">Bonjour <span class="arrow-greeting__name">Admin</span></p>
-
-                <!-- Onglets dashboard réels -->
-                <div class="arrow-dashboard-tabs">
-                  <span class="arrow-dtab arrow-dtab--active">SYNTHÈSE</span>
-                  <span class="arrow-dtab">PLANNING</span>
-                  <span class="arrow-dtab">ÉTUDIANTS</span>
-                  <span class="arrow-dtab">INTERVENANTS</span>
-                  <span class="arrow-dtab">MODULES</span>
-                  <span class="arrow-dtab">PROG. PÉDA.</span>
-                  <span class="arrow-dtab">PRÉSENCES</span>
-                  <span class="arrow-dtab">ÉVALUATIONS</span>
-                </div>
-
-                <!-- KPIs réels (données API) -->
-                <div class="arrow-kpi-grid">
-                  <div class="arrow-kpi-card">
-                    <span class="arrow-kpi-label">ÉTUDIANTS</span>
-                    <span class="arrow-kpi-value" style="color:#FF2D78">11</span>
-                  </div>
-                  <div class="arrow-kpi-card">
-                    <span class="arrow-kpi-label">INTERVENANTS</span>
-                    <span class="arrow-kpi-value" style="color:#7C3AED">5</span>
-                  </div>
-                  <div class="arrow-kpi-card">
-                    <span class="arrow-kpi-label">COHORTES</span>
-                    <span class="arrow-kpi-value" style="color:#1D4ED8">3</span>
-                  </div>
-                  <div class="arrow-kpi-card">
-                    <span class="arrow-kpi-label">MODULES</span>
-                    <span class="arrow-kpi-value" style="color:#D97706">5</span>
-                  </div>
-                  <div class="arrow-kpi-card">
-                    <span class="arrow-kpi-label">ÉVALUATIONS</span>
-                    <span class="arrow-kpi-value" style="color:#059669">6</span>
-                  </div>
-                  <div class="arrow-kpi-card">
-                    <span class="arrow-kpi-label">MOYENNE</span>
-                    <span class="arrow-kpi-value" style="color:#10B981">14.1</span>
-                  </div>
-                </div>
-
-                <!-- Points d'attention -->
-                <div class="arrow-alerts-section">
-                  <p class="arrow-alerts-title">POINTS D'ATTENTION</p>
-                  <div class="arrow-alert-row">
-                    <div class="arrow-alert-content">
-                      <span class="arrow-alert-name">Sans sessions</span>
-                      <span class="arrow-alert-desc">3 module(s) non planifié(s)</span>
-                    </div>
-                    <span class="arrow-alert-count" style="color:#D97706">3</span>
-                  </div>
-                  <div class="arrow-alert-row">
-                    <div class="arrow-alert-content">
-                      <span class="arrow-alert-name">Inactifs 14j+</span>
-                      <span class="arrow-alert-desc">5 intervenant(s)</span>
-                    </div>
-                    <span class="arrow-alert-count" style="color:#D97706">5</span>
-                  </div>
-                </div>
-
-                <!-- Sessions récentes -->
-                <div class="arrow-sessions-section">
-                  <p class="arrow-sessions-title">SESSIONS RÉCENTES</p>
-                  <div class="arrow-session-row" style="border-left:3px solid #16a34a">
-                    <span class="arrow-session-module">Communication professionnelle</span>
-                    <span class="arrow-session-cohort">Bachelor Marketing Digital - Démo</span>
-                    <span class="arrow-session-time">Jeu · 13:30–17:00 · Salle 118</span>
-                  </div>
-                  <div class="arrow-session-row" style="border-left:3px solid #2563eb">
-                    <span class="arrow-session-module">Stratégie marketing digital</span>
-                    <span class="arrow-session-cohort">Bachelor Marketing Digital - Démo</span>
-                    <span class="arrow-session-time">Mar · 09:00–12:30 · Salle 204</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <button
-            type="button"
-            class="slider-handle"
-            id="sliderHandle"
-            role="slider"
-            aria-label="Comparer une vue dispersée et Arrow"
-            aria-valuemin="0"
-            aria-valuemax="100"
-            aria-valuenow="50"
-            aria-valuetext="50 pourcent Arrow"
-          ></button>
-
-          <div class="comparison-label label-left">Vue dispersée</div>
-          <div class="comparison-label label-right">Arrow</div>
+        <div class="problem-after" aria-label="Avec Arrow : une seule fiche étudiant">
+          <span class="problem-side-label problem-side-label--accent">Avec Arrow — réuni</span>
+          <FicheEtudiant />
         </div>
       </div>
-
-      <p class="comparison-subtitle">D'une lecture dispersée à une fiche étudiant exploitable</p>
 
       <div class="brutal-entry">
         <p class="brutal-entry__lead">Vous reconnaissez ces irritants dans votre suivi actuel ?</p>
@@ -422,68 +103,212 @@ const jsonLd = {
           <span class="brutal-cta-icon">↗</span>
         </button>
       </div>
-    </div>
-
-    <section class="home-section-head home-section-head--compact">
-      <p class="eyebrow">Positionnement</p>
-      <h2>Pensé pour les équipes qui doivent suivre, prouver et décider.</h2>
-      <p>
-        Arrow aide les établissements qui doivent retrouver vite une absence, préparer un bulletin,
-        documenter un échange ou partager une preuve fiable autour du parcours étudiant.
-      </p>
     </section>
 
-    <div class="cyber-grid cyber-grid--compact">
-      <div class="cyber-card cyber-card--student">
-        <div class="cyber-icon">
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-            <rect x="14" y="14" width="36" height="36" rx="12" stroke="currentColor" stroke-width="1.8"/>
-            <circle cx="32" cy="27" r="6" stroke="currentColor" stroke-width="1.8"/>
-            <path d="M22 43C24.2 37.8 28 35 32 35C36 35 39.8 37.8 42 43" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <h3 class="cyber-title">FICHE ÉTUDIANT</h3>
-        <p class="cyber-desc">Absences, notes, documents et historique dans une même lecture.</p>
+    <section class="how" id="comment">
+      <div class="how__head">
+        <p class="eyebrow">Comment ça marche</p>
+        <h2>De données éparpillées à une décision claire, en 3 temps.</h2>
+      </div>
+      <ol class="how__steps">
+        <li class="how-step">
+          <span class="how-step__num">1</span>
+          <div class="how-step__txt">
+            <h3>Centraliser</h3>
+            <p>Toutes les données d'un étudiant au même endroit.</p>
+          </div>
+          <div class="how-step__peek">
+            <StepPeek title="Vue étudiant"><FicheEtudiant /></StepPeek>
+          </div>
+        </li>
+        <li class="how-step">
+          <span class="how-step__num">2</span>
+          <div class="how-step__txt">
+            <h3>Repérer</h3>
+            <p>Les alertes remontent qui décroche, automatiquement.</p>
+          </div>
+          <div class="how-step__peek">
+            <StepPeek title="Alertes"><AlertsList /></StepPeek>
+          </div>
+        </li>
+        <li class="how-step">
+          <span class="how-step__num">3</span>
+          <div class="how-step__txt">
+            <h3>Décider / Prouver</h3>
+            <p>Justifiez, exportez, suivez les décisions sans ressaisie.</p>
+          </div>
+          <div class="how-step__peek">
+            <StepPeek title="Décisions & preuves">
+              <div class="how-proof" aria-label="Décisions et preuves (aperçu produit)">
+                <div class="how-proof__head"><b>Décisions &amp; preuves</b><span class="how-proof__count">3</span></div>
+                <ul>
+                  <li class="how-proof__row">
+                    <i class="how-proof__dot how-proof__dot--success" aria-hidden="true"></i>
+                    <span class="how-proof__label">Bulletin S1</span>
+                    <span class="how-proof__val">Exporté</span>
+                  </li>
+                  <li class="how-proof__row">
+                    <i class="how-proof__dot how-proof__dot--success" aria-hidden="true"></i>
+                    <span class="how-proof__label">Convention</span>
+                    <span class="how-proof__val">Signée</span>
+                  </li>
+                  <li class="how-proof__row">
+                    <i class="how-proof__dot how-proof__dot--success" aria-hidden="true"></i>
+                    <span class="how-proof__label">Justificatif</span>
+                    <span class="how-proof__val">Validé</span>
+                  </li>
+                </ul>
+              </div>
+            </StepPeek>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="pillars" id="produit">
+      <div class="pillars__head">
+        <p class="eyebrow">Le produit</p>
+        <h2>Quatre briques, une seule fiche.</h2>
       </div>
 
-      <div class="cyber-card cyber-card--attendance">
-        <div class="cyber-icon">
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-            <path d="M18 42L26 34L31 39L44 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M18 20H46" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.45"/>
-            <path d="M18 28H34" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.45"/>
-            <circle cx="44" cy="24" r="4" fill="currentColor"/>
-          </svg>
-        </div>
-        <h3 class="cyber-title">ABSENCES</h3>
-        <p class="cyber-desc">Alertes et assiduité lisibles sans changer de fenêtre.</p>
+      <div class="pillars__grid">
+        <article class="pillar">
+          <div class="pillar__top">
+            <i class="ti ti-calendar-x" aria-hidden="true"></i>
+            <h3>Absences &amp; alertes</h3>
+          </div>
+          <p class="pillar__benefit">Suivez les absences et soyez alerté dès qu'un étudiant décroche.</p>
+          <div class="pillar__peek" aria-label="Absences et alertes (aperçu produit)">
+            <ul class="peek-rows">
+              <li class="peek-row">
+                <i class="peek-dot peek-dot--danger" aria-hidden="true"></i>
+                <span class="peek-row__label">Absence non justifiée — 12 mars</span>
+                <span class="peek-row__val peek-row__val--danger">À traiter</span>
+              </li>
+              <li class="peek-row">
+                <i class="peek-dot peek-dot--warning" aria-hidden="true"></i>
+                <span class="peek-row__label">Retard répété</span>
+                <span class="peek-row__val peek-row__val--warning">Alerte</span>
+              </li>
+              <li class="peek-row">
+                <i class="peek-dot peek-dot--success" aria-hidden="true"></i>
+                <span class="peek-row__label">Absence justifiée — 8 mars</span>
+                <span class="peek-row__val peek-row__val--success">OK</span>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="pillar">
+          <div class="pillar__top">
+            <i class="ti ti-chart-bar" aria-hidden="true"></i>
+            <h3>Notes &amp; bulletins</h3>
+          </div>
+          <p class="pillar__benefit">Moyennes, bulletins et évolution, lisibles d'un coup d'œil.</p>
+          <div class="pillar__peek" aria-label="Notes et bulletins (aperçu produit)">
+            <div class="peek-tiles">
+              <div class="peek-tile peek-tile--info">
+                <small>Moyenne</small>
+                <b>13,2</b>
+              </div>
+              <div class="peek-tile peek-tile--danger">
+                <small>Évolution</small>
+                <b>−2,1</b>
+              </div>
+            </div>
+            <ul class="peek-rows">
+              <li class="peek-row">
+                <i class="peek-dot peek-dot--primary" aria-hidden="true"></i>
+                <span class="peek-row__label">Bulletin S1</span>
+                <span class="peek-row__val">Disponible</span>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="pillar">
+          <div class="pillar__top">
+            <i class="ti ti-file-text" aria-hidden="true"></i>
+            <h3>Documents &amp; preuves</h3>
+          </div>
+          <p class="pillar__benefit">Conventions, justificatifs, attestations centralisés et horodatés.</p>
+          <div class="pillar__peek" aria-label="Documents et preuves (aperçu produit)">
+            <ul class="peek-rows">
+              <li class="peek-row">
+                <i class="peek-dot peek-dot--success" aria-hidden="true"></i>
+                <span class="peek-row__label">Convention</span>
+                <span class="peek-row__val peek-row__val--success">Signée</span>
+              </li>
+              <li class="peek-row">
+                <i class="peek-dot peek-dot--success" aria-hidden="true"></i>
+                <span class="peek-row__label">Justificatif</span>
+                <span class="peek-row__val peek-row__val--success">Validé</span>
+              </li>
+              <li class="peek-row">
+                <i class="peek-dot peek-dot--success" aria-hidden="true"></i>
+                <span class="peek-row__label">Attestation</span>
+                <span class="peek-row__val peek-row__val--success">Émise</span>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="pillar">
+          <div class="pillar__top">
+            <i class="ti ti-message-2" aria-hidden="true"></i>
+            <h3>Suivis &amp; commentaires</h3>
+          </div>
+          <p class="pillar__benefit">L'historique des échanges et décisions, partagé par l'équipe.</p>
+          <div class="pillar__peek" aria-label="Suivis et commentaires (aperçu produit)">
+            <ul class="peek-rows">
+              <li class="peek-row">
+                <i class="peek-dot peek-dot--primary" aria-hidden="true"></i>
+                <span class="peek-row__label">M. Dubois</span>
+                <span class="peek-row__val">entretien fait</span>
+              </li>
+              <li class="peek-row">
+                <i class="peek-dot peek-dot--violet" aria-hidden="true"></i>
+                <span class="peek-row__label">Mme Roy</span>
+                <span class="peek-row__val">à recontacter</span>
+              </li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="audience">
+      <div class="audience__head">
+        <p class="eyebrow">Pour qui</p>
+        <h2>Conçu pour celles et ceux qui suivent les étudiants.</h2>
       </div>
 
-      <div class="cyber-card cyber-card--results">
-        <div class="cyber-icon">
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-            <rect x="18" y="14" width="24" height="30" rx="6" stroke="currentColor" stroke-width="1.8"/>
-            <path d="M24 24H36" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-            <path d="M24 31H36" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.55"/>
-            <path d="M24 38H32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.55"/>
-            <path d="M42 21L46 25L42 29" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <h3 class="cyber-title">NOTES & BULLETINS</h3>
-        <p class="cyber-desc">Résultats, évaluations et bulletins reliés plus clairement.</p>
-      </div>
+      <div class="audience__grid">
+        <article class="segment">
+          <div class="segment__icon">
+            <i class="ti ti-school" aria-hidden="true"></i>
+          </div>
+          <h3 class="segment__name">Écoles supérieures</h3>
+          <p class="segment__line">Une vue claire par étudiant pour les équipes pédagogiques.</p>
+        </article>
 
-      <div class="cyber-card cyber-card--documents">
-        <div class="cyber-icon">
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-            <path d="M18 24C18 20.6863 20.6863 18 24 18H30L34 22H40C43.3137 22 46 24.6863 46 28V40C46 43.3137 43.3137 46 40 46H24C20.6863 46 18 43.3137 18 40V24Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-            <path d="M27 33L31 37L38 29" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <h3 class="cyber-title">DOCUMENTS & PREUVES</h3>
-        <p class="cyber-desc">Pièces, commentaires et preuves utiles retrouvés plus vite.</p>
+        <article class="segment">
+          <div class="segment__icon">
+            <i class="ti ti-briefcase" aria-hidden="true"></i>
+          </div>
+          <h3 class="segment__name">CFA &amp; alternance</h3>
+          <p class="segment__line">Le lien école–entreprise et le suivi des alternants, centralisés.</p>
+        </article>
+
+        <article class="segment">
+          <div class="segment__icon">
+            <i class="ti ti-clipboard-check" aria-hidden="true"></i>
+          </div>
+          <h3 class="segment__name">Équipes scolarité</h3>
+          <p class="segment__line">Absences, justificatifs et preuves prêts pour le contrôle.</p>
+        </article>
       </div>
-    </div>
+    </section>
 
     {(testimonials.length > 0 || clientLogos.length > 0) && (
       <section class="social-proof">
@@ -516,9 +341,16 @@ const jsonLd = {
       </section>
     )}
 
-    <div class="cyber-cta">
-      <a href="/tarifs" class="cyber-button" data-track="home_beta_details" style="text-decoration: none; display: inline-block;">Comprendre la bêta</a>
-    </div>
+    <section class="final-cta">
+      <div class="final-cta__inner">
+        <h2 class="final-cta__title">Prêt à voir une fiche étudiant en vrai ?</h2>
+        <p class="final-cta__lede">Une démo de 20 minutes, sur vos cas.</p>
+        <div class="final-cta__actions">
+          <a href="/contact" data-open-modal="betaAccessModal" class="btn-primary final-cta__primary" data-track="home_demo">Demander une démo</a>
+          <a href="/tarifs" class="btn-ghost" data-track="home_pricing">Voir les tarifs</a>
+        </div>
+      </div>
+    </section>
   </div>
 
   <div
@@ -626,7 +458,7 @@ const jsonLd = {
           </div>
 
           <div style="text-align: center; margin-top: 40px;">
-            <p style="font-size: 28px; color: #FF007F; font-weight: 700;">
+            <p style="font-size: 28px; color: var(--primary); font-weight: 700;">
               Si ça vous parle, Arrow mérite une démo.
             </p>
           </div>
@@ -843,7 +675,7 @@ const jsonLd = {
             suivi étudiant, absences, bulletins, documents et preuves utiles.
           </p>
           <a href="/contact" data-open-modal="betaAccessModal" class="brutal-hero-cta" data-track="home_brutal_demo">Demander une démo</a>
-          <p style="margin-top: 30px; font-size: 14px; color: rgba(0, 217, 255, 0.6);">
+          <p style="margin-top: 30px; font-size: 14px; color: var(--muted-foreground);">
             La bêta reste cadrée, progressive et sans sur-promesse.
           </p>
         </section>

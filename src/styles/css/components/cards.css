@@ -3,16 +3,26 @@
   --card-accent: var(--primary);
   position: relative;
   background: var(--card);
-  border: 1px solid color-mix(in srgb, var(--card-accent) 22%, var(--border));
+  border: 0.5px solid var(--border);
   border-radius: var(--radius-lg);
   padding: var(--spacing-xl);
   overflow: hidden;
   transition: border-color var(--transition-slow), box-shadow var(--transition-slow), transform var(--transition-slow);
 }
 .card:hover {
-  border-color: color-mix(in srgb, var(--card-accent) 46%, var(--border));
-  box-shadow: 0 18px 48px color-mix(in srgb, var(--card-accent) 16%, transparent);
+  border-color: var(--primary-20);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.35);
   transform: translateY(-4px);
+}
+:root[data-theme="light"] .card:hover {
+  box-shadow: var(--theme-box-shadow);
+}
+
+/* Highlighted / active card — accent glow only when explicitly flagged */
+.card.is-active,
+.is-active.card {
+  border-color: var(--primary-30);
+  box-shadow: var(--glow-cta);
 }
 
 .card-title {

@@ -1,39 +1,52 @@
 /* css/components/hud.css */
 .hud-stats {
-  display: flex; flex-wrap: wrap;
-  justify-content: center; gap: var(--spacing-xl);
-  background: var(--primary-5);
-  border: 1px solid var(--primary-15);
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: var(--spacing-xl);
+  background: transparent;
+  border: 0.5px solid var(--border);
   border-radius: var(--radius-xl);
   padding: var(--spacing-lg) var(--spacing-2xl);
-  box-shadow: var(--theme-box-shadow);
   margin: 0 auto var(--spacing-2xl);
-  max-width: 600px;
+  max-width: 640px;
 }
 .stat-item, .hud-stat {
-  --stat-accent: var(--primary);
-  display: flex; flex-direction: column; align-items: center;
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: var(--spacing-xs);
 }
-/* Cycle des accents Arrow : bleu (dominant), cyan, vert pétant */
-.hud-stats .stat-item:nth-child(1), .hud-stats .hud-stat:nth-child(1) { --stat-accent: var(--primary); }
-.hud-stats .stat-item:nth-child(2), .hud-stats .hud-stat:nth-child(2) { --stat-accent: var(--accent-cyan); }
-.hud-stats .stat-item:nth-child(3), .hud-stats .hud-stat:nth-child(3) { --stat-accent: var(--accent-green); }
-
 .stat-value, .hud-stat-value {
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
   font-weight: 800;
-  color: var(--stat-accent);
-  text-shadow: 0 0 22px color-mix(in srgb, var(--stat-accent) 55%, transparent);
+  line-height: 1.1;
+  color: var(--primary);
   font-family: var(--font-family);
 }
 .stat-label, .hud-stat-label {
   font-size: 0.7rem;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  line-height: 1.3;
   color: var(--muted-foreground);
   font-family: var(--font-family);
 }
 @media (max-width: 768px) {
-  .hud-stats { padding: var(--spacing-md); gap: var(--spacing-lg); }
+  .hud-stats {
+    flex-wrap: wrap;
+    gap: var(--spacing-md) var(--spacing-lg);
+    padding: var(--spacing-lg) var(--spacing-md);
+    max-width: 420px;
+  }
+  .stat-item, .hud-stat {
+    flex: 1 1 100%;
+  }
+  .stat-label, .hud-stat-label {
+    letter-spacing: 0.16em;
+  }
 }

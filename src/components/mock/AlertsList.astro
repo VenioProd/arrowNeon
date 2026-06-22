@@ -1,0 +1,20 @@
+---
+const alerts: { nom: string; motif: string; niveau: string; val: string }[] = [
+  { nom: 'Léa Martin', motif: 'Absences répétées', niveau: 'danger', val: '3 cette semaine' },
+  { nom: 'Hugo Bernard', motif: 'Moyenne en baisse', niveau: 'warning', val: '−2,1' },
+  { nom: 'Sofia Lopez', motif: 'Document manquant', niveau: 'warning', val: 'Convention' },
+  { nom: 'Adam Costa', motif: 'Retour positif', niveau: 'success', val: 'Remotivé' },
+];
+---
+<div class="mock-alerts" aria-label="Liste d'alertes (aperçu produit)">
+  <div class="mock-alerts__head"><b>Alertes à traiter</b><span class="mock-alerts__count">4</span></div>
+  <ul>
+    {alerts.map((a: { nom: string; motif: string; niveau: string; val: string }) => (
+      <li class={`mock-alert mock-alert--${a.niveau}`}>
+        <i class="mock-alert__dot" aria-hidden="true"></i>
+        <span class="mock-alert__who"><b>{a.nom}</b><small>{a.motif}</small></span>
+        <span class="mock-alert__val">{a.val}</span>
+      </li>
+    ))}
+  </ul>
+</div>

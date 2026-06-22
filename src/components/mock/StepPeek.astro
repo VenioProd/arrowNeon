@@ -1,0 +1,7 @@
+---
+const { title = '' } = Astro.props;
+---
+<div class="mock-steppeek">
+  {title && <div class="mock-steppeek__title">{title}</div>}
+  <div class="mock-steppeek__body"><slot /></div>
+</div>

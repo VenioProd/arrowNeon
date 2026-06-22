@@ -1,0 +1,31 @@
+---
+const { nom = 'Léa Martin', classe = 'BTS SIO · 2ᵉ année · Groupe B', alertes = 3 } = Astro.props;
+const stats = [
+  { label: 'Absences', value: '14 h', tone: 'info' },
+  { label: 'Moyenne', value: '13,2', tone: 'success' },
+  { label: 'Bulletins', value: '2', tone: 'warning' },
+  { label: 'Documents', value: '9', tone: 'violet' },
+];
+const events = [
+  { dot: 'danger', text: 'Absence non justifiée — 12 mars', val: 'À traiter' },
+  { dot: 'warning', text: 'Moyenne en baisse — Maths', val: '−2,1' },
+  { dot: 'success', text: 'Convention de stage', val: 'Signée' },
+];
+---
+<article class="mock-fiche" aria-label={`Fiche étudiant ${nom} (aperçu produit)`}>
+  <header class="mock-fiche__head">
+    <span class="mock-fiche__ava" aria-hidden="true">{nom.split(' ').map((w: string)=>w[0]).join('').slice(0,2)}</span>
+    <span class="mock-fiche__who"><b>{nom}</b><small>{classe}</small></span>
+    <span class="mock-fiche__pill">{alertes} alertes</span>
+  </header>
+  <div class="mock-fiche__stats">
+    {stats.map(s => (
+      <div class={`mock-stat mock-stat--${s.tone}`}><small>{s.label}</small><b>{s.value}</b></div>
+    ))}
+  </div>
+  <ul class="mock-fiche__events">
+    {events.map(e => (
+      <li><i class={`dot dot--${e.dot}`} aria-hidden="true"></i><span>{e.text}</span><b>{e.val}</b></li>
+    ))}
+  </ul>
+</article>
