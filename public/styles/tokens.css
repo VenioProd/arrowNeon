@@ -1,34 +1,39 @@
 /* css/tokens.css */
 :root {
-  /* Couleurs */
-  --primary: #0080ff;
+  /* Couleurs — accent unique */
+  --primary: #2f6df6;
+  --primary-rgb: 47, 109, 246;
   --accent-cyan: #00d9ff;
   --accent-violet: #8a2cff;
   --accent-magenta: #ff00d6;
   --accent-green: #00ff88;
   --accent-orange: #ff7a00;
-  --primary-5:  rgba(0,128,255,0.07);
-  --primary-10: rgba(0,128,255,0.12);
-  --primary-15: rgba(0,128,255,0.18);
-  --primary-20: rgba(0,128,255,0.26);
-  --primary-30: rgba(0,128,255,0.38);
-  --primary-60: rgba(0,128,255,0.68);
+  --primary-5:  rgba(47,109,246,0.07);
+  --primary-10: rgba(47,109,246,0.12);
+  --primary-15: rgba(47,109,246,0.18);
+  --primary-20: rgba(47,109,246,0.26);
+  --primary-30: rgba(47,109,246,0.38);
+  --primary-60: rgba(47,109,246,0.68);
 
   /* Sémantique */
-  --background:       #05060f;
-  --foreground:       #e2e8f0;
-  --card:             #0f172a;
-  --card-foreground:  #f8fafc;
-  --muted:            #1f2937;
-  --muted-foreground: #94a3b8;
-  --destructive:      #ef4444;
+  --danger:           #ff5d73;
+  --success:          #2fcf8e;
+  --warning:          #e6b450;
+  --background:       #070b16;
+  --foreground:       #e7ecf5;
+  --card:             #0e1424;
+  --card-foreground:  #f4f7fc;
+  --muted:            #161d30;
+  --muted-foreground: #9aa6bd;
+  --destructive:      #ff5d73;
   --border:           rgba(255,255,255,0.08);
 
   /* Effets */
-  --text-glow:              0 0 22px var(--primary);
-  --theme-box-shadow:       0 0 42px rgba(0,128,255,0.36);
-  --theme-box-shadow-hover: 0 0 66px rgba(0,128,255,0.58);
-  --surface-panel-shadow:   0 0 26px rgba(0,128,255,0.32);
+  --text-glow:              0 0 24px rgba(var(--primary-rgb), 0.45);
+  --glow-cta:               0 0 26px rgba(var(--primary-rgb), 0.50);
+  --theme-box-shadow:       0 0 42px rgba(47,109,246,0.36);
+  --theme-box-shadow-hover: 0 0 66px rgba(47,109,246,0.58);
+  --surface-panel-shadow:   0 0 26px rgba(47,109,246,0.32);
 
   /* Glow par accent — pour réutilisation cohérente */
   --glow-cyan:    0 0 22px rgba(0, 217, 255, 0.55);
