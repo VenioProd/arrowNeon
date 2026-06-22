@@ -574,3 +574,194 @@
         display: none;
     }
 }
+
+/* ───────────────────────────────────────────────────────────────────────────
+   Section « 4 piliers produit »
+─────────────────────────────────────────────────────────────────────────── */
+.pillars {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: clamp(40px, 7vw, 72px) 0 clamp(32px, 5vw, 48px);
+}
+
+.pillars__head {
+    max-width: 680px;
+    margin: 0 auto clamp(32px, 5vw, 48px);
+    text-align: center;
+}
+
+.pillars__head .eyebrow {
+    margin: 0 0 14px;
+    color: var(--primary);
+}
+
+.pillars__head h2 {
+    margin: 0;
+    font-size: clamp(26px, 3.6vw, 38px);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--foreground);
+}
+
+.pillars__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.pillar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: clamp(20px, 2.2vw, 24px);
+    background: var(--card);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+}
+
+.pillar__top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pillar__top i {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+    background: var(--primary-15);
+    color: var(--primary);
+    font-size: 20px;
+}
+
+.pillar__top h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--card-foreground);
+}
+
+.pillar__benefit {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--muted-foreground);
+}
+
+/* ── Aperçu produit imbriqué (surface inset) ───────────────────────────────── */
+.pillar__peek {
+    margin-top: auto;
+    background: var(--background);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    font-family: var(--font-body);
+}
+
+/* Tuiles stat (pilier Notes & bulletins) */
+.peek-tiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 12px 12px 4px;
+}
+
+.peek-tile {
+    border-radius: 9px;
+    padding: 9px 11px;
+}
+
+.peek-tile small {
+    display: block;
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.85;
+}
+
+.peek-tile b {
+    display: block;
+    font-size: 18px;
+    font-weight: 800;
+    margin-top: 3px;
+}
+
+.peek-tile--info {
+    background: color-mix(in srgb, var(--primary) 14%, transparent);
+    color: var(--primary);
+}
+
+.peek-tile--danger {
+    background: color-mix(in srgb, var(--danger) 16%, transparent);
+    color: var(--danger);
+}
+
+/* Lignes (rows) */
+.peek-rows {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.peek-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 13px;
+    font-size: 12.5px;
+}
+
+.peek-row + .peek-row,
+.peek-tiles + .peek-rows .peek-row {
+    border-top: 0.5px solid var(--border);
+}
+
+.peek-dot {
+    flex-shrink: 0;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--muted-foreground);
+}
+
+.peek-dot--danger  { background: var(--danger); }
+.peek-dot--warning { background: var(--warning); }
+.peek-dot--success { background: var(--success); }
+.peek-dot--primary { background: var(--primary); }
+.peek-dot--violet  { background: var(--accent-violet); }
+
+.peek-row__label {
+    flex: 1;
+    min-width: 0;
+    font-weight: 700;
+    color: var(--card-foreground);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.peek-row__val {
+    margin-left: auto;
+    flex-shrink: 0;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--muted-foreground);
+    white-space: nowrap;
+}
+
+.peek-row__val--danger  { color: var(--danger); }
+.peek-row__val--warning { color: var(--warning); }
+.peek-row__val--success { color: var(--success); }
+
+@media (max-width: 860px) {
+    .pillars__grid {
+        grid-template-columns: 1fr;
+    }
+}
