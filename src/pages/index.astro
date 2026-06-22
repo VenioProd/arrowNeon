@@ -63,317 +63,36 @@ const jsonLd = {
       </div>
     </div>
 
-    <div class="comparison-section" id="difference">
-      <div class="comparison-header">
-        <h2 class="comparison-title">
-          <span class="comparison-title__old">SUIVI DISPERSÉ</span> vs <span class="comparison-title__arrow">ARROW</span>
-        </h2>
-        <p class="comparison-instruction">Comparez une vue dispersée et Arrow</p>
+    <section class="problem-section" id="difference">
+      <div class="problem-head">
+        <p class="problem-eyebrow">Le problème</p>
+        <h2 class="problem-title">Vos infos étudiants sont éclatées dans 5 outils.</h2>
+        <p class="problem-subtitle">Arrow les réunit dans une seule vue par étudiant — absences, notes, bulletins et documents au même endroit.</p>
       </div>
 
-      <div class="comparison-slider-wrapper">
-        <div class="comparison-slider" id="comparisonSlider" data-track-view="comparison_slider">
-          <div class="comparison-side side-old-platform">
-            <div class="old-platform-interface">
-              <div class="hp-navbar">
-                <div class="hp-nav-item">Cours</div>
-                <div class="hp-nav-item">Notation</div>
-                <div class="hp-nav-item">Enseignements</div>
-                <div class="hp-nav-item">QCM</div>
-                <div class="hp-nav-item">Assiduité</div>
-                <div class="hp-nav-item" style="background: #8a5a5a;">Étudiants</div>
-              </div>
-
-              <div class="hp-toolbar">
-                <span style="font-size: 11px; color: #666;">Liste :</span>
-                <select class="hp-dropdown">
-                  <option>Saisie du nom</option>
-                </select>
-                <select class="hp-dropdown">
-                  <option>Institut Formation (P27) &gt; Scolaire</option>
-                </select>
-                <span style="font-size: 11px; color: #666; margin-left: 20px;">au :</span>
-                <select class="hp-dropdown">
-                  <option>Aujourd'hui</option>
-                </select>
-                <div class="hp-search-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" focusable="false">
-                    <circle cx="11" cy="11" r="6" />
-                    <path d="m16 16 4 4" />
-                  </svg>
-                </div>
-              </div>
-
-              <div class="hp-table-container">
-                <table class="hp-table">
-                  <thead>
-                    <tr>
-                      <th>Nom</th>
-                      <th>Né(e) le</th>
-                      <th>S.</th>
-                      <th>E-mail</th>
-                      <th colspan="2" style="text-align: center;">Heures manquées</th>
-                      <th>Entrée</th>
-                      <th>Sortie</th>
-                    </tr>
-                    <tr style="background: #fafafa;">
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                      <th style="font-weight: 400; font-size: 10px;">Toutes</th>
-                      <th style="font-weight: 400; font-size: 10px;">Mes cours</th>
-                      <th></th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><span class="hp-icon hp-icon-pink">▼</span> MARTIN Sophie</td>
-                      <td>21/08/2006</td>
-                      <td><span class="hp-icon hp-icon-pink">♀</span></td>
-                      <td><span class="hp-email-link">sophie.martin@email.com</span></td>
-                      <td>21h00 (7)</td>
-                      <td>03h00 (1)</td>
-                      <td><span class="hp-status">Début d'année</span></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td><span class="hp-icon hp-icon-pink">▼</span> DUBOIS Marc</td>
-                      <td>05/10/2006</td>
-                      <td><span class="hp-icon hp-icon-blue">♂</span></td>
-                      <td><span class="hp-email-link">marc.dubois@email.com</span></td>
-                      <td>101h00 (34)</td>
-                      <td>18h00 (6)</td>
-                      <td><span class="hp-status">Début d'année</span></td>
-                      <td>14/11/2025</td>
-                    </tr>
-                    <tr>
-                      <td><span class="hp-icon hp-icon-pink">▼</span> BERNARD Lucas</td>
-                      <td>19/09/2007</td>
-                      <td><span class="hp-icon hp-icon-blue">♂</span></td>
-                      <td><span class="hp-email-link">lucas.bernard@email.com</span></td>
-                      <td>43h00 (15)</td>
-                      <td>06h00 (2)</td>
-                      <td><span class="hp-status">Début d'année</span></td>
-                      <td>30/11/2025</td>
-                    </tr>
-                    <tr>
-                      <td><span class="hp-icon hp-icon-pink">▼</span> PETIT Thomas</td>
-                      <td>08/01/2007</td>
-                      <td><span class="hp-icon hp-icon-blue">♂</span></td>
-                      <td><span class="hp-email-link">thomas.petit@email.com</span></td>
-                      <td>38h00 (13)</td>
-                      <td>06h00 (2)</td>
-                      <td><span class="hp-status">Début d'année</span></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td><span class="hp-icon hp-icon-pink">▼</span> ROBERT Julie</td>
-                      <td>12/10/2007</td>
-                      <td><span class="hp-icon hp-icon-pink">♀</span></td>
-                      <td><span class="hp-email-link">julie.robert@email.com</span></td>
-                      <td>60h00 (20)</td>
-                      <td>06h00 (2)</td>
-                      <td><span class="hp-status">Début d'année</span></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td><span class="hp-icon hp-icon-pink">▼</span> RICHARD Paul</td>
-                      <td>19/08/2004</td>
-                      <td><span class="hp-icon hp-icon-blue">♂</span></td>
-                      <td><span class="hp-email-link">paul.richard@email.com</span></td>
-                      <td>35h00 (12)</td>
-                      <td>03h00 (1)</td>
-                      <td><span class="hp-status">Début d'année</span></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td><span class="hp-icon hp-icon-pink">▼</span> DURAND Emma</td>
-                      <td>22/06/2007</td>
-                      <td><span class="hp-icon hp-icon-pink">♀</span></td>
-                      <td><span class="hp-email-link">emma.durand@email.com</span></td>
-                      <td>06h00 (2)</td>
-                      <td>00h00</td>
-                      <td><span class="hp-status">Début d'année</span></td>
-                      <td>30/11/2025</td>
-                    </tr>
-                    <tr>
-                      <td><span class="hp-icon hp-icon-pink">▼</span> MOREAU Léo</td>
-                      <td>21/10/2006</td>
-                      <td><span class="hp-icon hp-icon-blue">♂</span></td>
-                      <td><span class="hp-email-link">leo.moreau@email.com</span></td>
-                      <td>101h00 (34)</td>
-                      <td>18h00 (6)</td>
-                      <td><span class="hp-status">Début d'année</span></td>
-                      <td>14/11/2025</td>
-                    </tr>
-                    <tr>
-                      <td><span class="hp-icon hp-icon-pink">▼</span> SIMON Chloé</td>
-                      <td>19/11/2007</td>
-                      <td><span class="hp-icon hp-icon-pink">♀</span></td>
-                      <td><span class="hp-email-link">chloe.simon@email.com</span></td>
-                      <td>20h00 (7)</td>
-                      <td>00h00</td>
-                      <td><span class="hp-status">Début d'année</span></td>
-                      <td>30/11/2025</td>
-                    </tr>
-                    <tr>
-                      <td><span class="hp-icon hp-icon-pink">▼</span> LAURENT Hugo</td>
-                      <td>31/05/2007</td>
-                      <td><span class="hp-icon hp-icon-blue">♂</span></td>
-                      <td><span class="hp-email-link">hugo.laurent@email.com</span></td>
-                      <td>98h00 (33)</td>
-                      <td>21h00 (7)</td>
-                      <td><span class="hp-status">Début d'année</span></td>
-                      <td>14/11/2025</td>
-                    </tr>
-                    <tr>
-                      <td><span class="hp-icon hp-icon-pink">▼</span> LEFEVRE Camille</td>
-                      <td>18/11/2007</td>
-                      <td><span class="hp-icon hp-icon-pink">♀</span></td>
-                      <td><span class="hp-email-link">camille.lefevre@email.com</span></td>
-                      <td>21h00 (7)</td>
-                      <td>03h00 (1)</td>
-                      <td><span class="hp-status">Début d'année</span></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td><span class="hp-icon hp-icon-pink">▼</span> ANDRE Maxime</td>
-                      <td>19/08/2005</td>
-                      <td><span class="hp-icon hp-icon-blue">♂</span></td>
-                      <td><span class="hp-email-link">maxime.andre@email.com</span></td>
-                      <td>51h00 (17)</td>
-                      <td>18h00 (6)</td>
-                      <td><span class="hp-status">Début d'année</span></td>
-                      <td></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+      <div class="problem-contrast">
+        <div class="problem-before" aria-label="Aujourd'hui : informations dispersées">
+          <span class="problem-side-label">Aujourd'hui — dispersé</span>
+          <div class="scatter">
+            <span class="scatter-chip">Tableur</span>
+            <span class="scatter-chip">Emails</span>
+            <span class="scatter-chip">Module absences</span>
+            <span class="scatter-chip">PDF bulletins</span>
+            <span class="scatter-chip">Notes</span>
           </div>
+        </div>
 
-          <div class="comparison-side side-arrow">
-            <div class="arrow-interface">
+        <div class="problem-arrow" aria-hidden="true">
+          <svg viewBox="0 0 48 24" focusable="false" width="48" height="24">
+            <path d="M2 12h40M34 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
 
-              <!-- Barre de navigation Arrow — thème clair fidèle -->
-              <div class="arrow-mini-nav">
-                <div class="arrow-mini-brand">
-                  <span class="arrow-mini-logo">ARROW</span>
-                  <span class="arrow-mini-badge">SUPER ADMIN</span>
-                  <span class="arrow-mini-school">ARROW DEMO CAMPUS</span>
-                </div>
-                <div class="arrow-mini-tabs">
-                  <span class="arrow-mini-tab">MON ESPACE</span>
-                  <span class="arrow-mini-tab arrow-mini-tab--active">PLANNING</span>
-                  <span class="arrow-mini-tab">PÉDAGOGIE</span>
-                  <span class="arrow-mini-tab">UTILISATEURS</span>
-                  <span class="arrow-mini-tab">COMMUNICATION</span>
-                  <span class="arrow-mini-tab">SUIVIS</span>
-                  <span class="arrow-mini-tab">PARAMÈTRES</span>
-                </div>
-              </div>
-
-              <!-- Dashboard Arrow — thème blanc -->
-              <div class="arrow-page-content">
-                <p class="arrow-greeting">Bonjour <span class="arrow-greeting__name">Admin</span></p>
-
-                <!-- Onglets dashboard réels -->
-                <div class="arrow-dashboard-tabs">
-                  <span class="arrow-dtab arrow-dtab--active">SYNTHÈSE</span>
-                  <span class="arrow-dtab">PLANNING</span>
-                  <span class="arrow-dtab">ÉTUDIANTS</span>
-                  <span class="arrow-dtab">INTERVENANTS</span>
-                  <span class="arrow-dtab">MODULES</span>
-                  <span class="arrow-dtab">PROG. PÉDA.</span>
-                  <span class="arrow-dtab">PRÉSENCES</span>
-                  <span class="arrow-dtab">ÉVALUATIONS</span>
-                </div>
-
-                <!-- KPIs réels (données API) -->
-                <div class="arrow-kpi-grid">
-                  <div class="arrow-kpi-card">
-                    <span class="arrow-kpi-label">ÉTUDIANTS</span>
-                    <span class="arrow-kpi-value" style="color:#FF2D78">11</span>
-                  </div>
-                  <div class="arrow-kpi-card">
-                    <span class="arrow-kpi-label">INTERVENANTS</span>
-                    <span class="arrow-kpi-value" style="color:#7C3AED">5</span>
-                  </div>
-                  <div class="arrow-kpi-card">
-                    <span class="arrow-kpi-label">COHORTES</span>
-                    <span class="arrow-kpi-value" style="color:#1D4ED8">3</span>
-                  </div>
-                  <div class="arrow-kpi-card">
-                    <span class="arrow-kpi-label">MODULES</span>
-                    <span class="arrow-kpi-value" style="color:#D97706">5</span>
-                  </div>
-                  <div class="arrow-kpi-card">
-                    <span class="arrow-kpi-label">ÉVALUATIONS</span>
-                    <span class="arrow-kpi-value" style="color:#059669">6</span>
-                  </div>
-                  <div class="arrow-kpi-card">
-                    <span class="arrow-kpi-label">MOYENNE</span>
-                    <span class="arrow-kpi-value" style="color:#10B981">14.1</span>
-                  </div>
-                </div>
-
-                <!-- Points d'attention -->
-                <div class="arrow-alerts-section">
-                  <p class="arrow-alerts-title">POINTS D'ATTENTION</p>
-                  <div class="arrow-alert-row">
-                    <div class="arrow-alert-content">
-                      <span class="arrow-alert-name">Sans sessions</span>
-                      <span class="arrow-alert-desc">3 module(s) non planifié(s)</span>
-                    </div>
-                    <span class="arrow-alert-count" style="color:#D97706">3</span>
-                  </div>
-                  <div class="arrow-alert-row">
-                    <div class="arrow-alert-content">
-                      <span class="arrow-alert-name">Inactifs 14j+</span>
-                      <span class="arrow-alert-desc">5 intervenant(s)</span>
-                    </div>
-                    <span class="arrow-alert-count" style="color:#D97706">5</span>
-                  </div>
-                </div>
-
-                <!-- Sessions récentes -->
-                <div class="arrow-sessions-section">
-                  <p class="arrow-sessions-title">SESSIONS RÉCENTES</p>
-                  <div class="arrow-session-row" style="border-left:3px solid #16a34a">
-                    <span class="arrow-session-module">Communication professionnelle</span>
-                    <span class="arrow-session-cohort">Bachelor Marketing Digital - Démo</span>
-                    <span class="arrow-session-time">Jeu · 13:30–17:00 · Salle 118</span>
-                  </div>
-                  <div class="arrow-session-row" style="border-left:3px solid #2563eb">
-                    <span class="arrow-session-module">Stratégie marketing digital</span>
-                    <span class="arrow-session-cohort">Bachelor Marketing Digital - Démo</span>
-                    <span class="arrow-session-time">Mar · 09:00–12:30 · Salle 204</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <button
-            type="button"
-            class="slider-handle"
-            id="sliderHandle"
-            role="slider"
-            aria-label="Comparer une vue dispersée et Arrow"
-            aria-valuemin="0"
-            aria-valuemax="100"
-            aria-valuenow="50"
-            aria-valuetext="50 pourcent Arrow"
-          ></button>
-
-          <div class="comparison-label label-left">Vue dispersée</div>
-          <div class="comparison-label label-right">Arrow</div>
+        <div class="problem-after" aria-label="Avec Arrow : une seule fiche étudiant">
+          <span class="problem-side-label problem-side-label--accent">Avec Arrow — réuni</span>
+          <FicheEtudiant />
         </div>
       </div>
-
-      <p class="comparison-subtitle">D'une lecture dispersée à une fiche étudiant exploitable</p>
 
       <div class="brutal-entry">
         <p class="brutal-entry__lead">Vous reconnaissez ces irritants dans votre suivi actuel ?</p>
@@ -382,7 +101,7 @@ const jsonLd = {
           <span class="brutal-cta-icon">↗</span>
         </button>
       </div>
-    </div>
+    </section>
 
     <section class="home-section-head home-section-head--compact">
       <p class="eyebrow">Positionnement</p>
