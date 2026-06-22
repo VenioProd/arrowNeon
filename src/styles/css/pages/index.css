@@ -765,3 +765,206 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* ───────────────────────────────────────────────────────────────────────────
+   Section « Pour qui » — segmentation (dark raffiné)
+─────────────────────────────────────────────────────────────────────────── */
+.audience {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: clamp(40px, 7vw, 72px) 0 clamp(32px, 5vw, 48px);
+}
+
+.audience__head {
+    max-width: 680px;
+    margin: 0 auto clamp(32px, 5vw, 48px);
+    text-align: center;
+}
+
+.audience__head .eyebrow {
+    display: block;
+    margin: 0 0 14px;
+    color: var(--primary);
+}
+
+.audience__head h2 {
+    margin: 0;
+    font-size: clamp(26px, 3.6vw, 38px);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--foreground);
+}
+
+.audience__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.segment {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: clamp(22px, 2.4vw, 28px);
+    background: var(--card);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+}
+
+.segment__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
+    background: var(--primary-15);
+    color: var(--primary);
+    font-size: 22px;
+}
+
+.segment__name {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--card-foreground);
+}
+
+.segment__line {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--muted-foreground);
+}
+
+@media (max-width: 860px) {
+    .audience__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   Section « Preuve sociale » — témoignages + logos (dark raffiné, calme)
+─────────────────────────────────────────────────────────────────────────── */
+.social-proof {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: clamp(40px, 7vw, 72px) 0 clamp(32px, 5vw, 48px);
+}
+
+.social-proof .home-section-head {
+    max-width: 680px;
+    margin: 0 auto clamp(32px, 5vw, 48px);
+    text-align: center;
+}
+
+.social-proof .home-section-head .eyebrow {
+    display: block;
+    margin: 0 0 14px;
+    color: var(--primary);
+}
+
+.social-proof .home-section-head h2 {
+    margin: 0;
+    font-size: clamp(26px, 3.6vw, 38px);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--foreground);
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Carte témoignage — surface calme, sans glow */
+.testimonial-card {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: clamp(22px, 2.4vw, 28px);
+    background: var(--card);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+}
+
+/* Pas de glow/translation au survol pour cette section : on reste posé */
+.testimonial-card:hover {
+    border-color: var(--border);
+    box-shadow: none;
+    transform: none;
+}
+
+.testimonial-quote {
+    position: relative;
+    margin: 0;
+    padding-top: 26px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--card-foreground);
+}
+
+/* Guillemet d'accent discret */
+.testimonial-quote::before {
+    content: '“';
+    position: absolute;
+    top: -6px;
+    left: -2px;
+    font-size: 44px;
+    line-height: 1;
+    font-weight: 700;
+    color: var(--primary);
+    opacity: 0.6;
+}
+
+.testimonial-author {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: auto;
+}
+
+.testimonial-name {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.testimonial-role {
+    font-size: 13px;
+    color: var(--muted-foreground);
+}
+
+/* Logos clients — rangée nette, monochrome discret */
+.client-logos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(24px, 4vw, 48px);
+    margin-top: clamp(32px, 5vw, 48px);
+    padding-top: clamp(28px, 4vw, 40px);
+    border-top: 0.5px solid var(--border);
+}
+
+.client-logo {
+    height: 36px;
+    width: auto;
+    opacity: 0.5;
+    filter: grayscale(1);
+    transition: opacity var(--transition-base), filter var(--transition-base);
+}
+
+.client-logo:hover {
+    opacity: 0.85;
+    filter: grayscale(0.4);
+}
+
+@media (max-width: 860px) {
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+}

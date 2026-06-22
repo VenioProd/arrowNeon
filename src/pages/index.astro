@@ -277,66 +277,38 @@ const jsonLd = {
       </div>
     </section>
 
-    <section class="home-section-head home-section-head--compact">
-      <p class="eyebrow">Positionnement</p>
-      <h2>Pensé pour les équipes qui doivent suivre, prouver et décider.</h2>
-      <p>
-        Arrow aide les établissements qui doivent retrouver vite une absence, préparer un bulletin,
-        documenter un échange ou partager une preuve fiable autour du parcours étudiant.
-      </p>
+    <section class="audience">
+      <div class="audience__head">
+        <p class="eyebrow">Pour qui</p>
+        <h2>Conçu pour celles et ceux qui suivent les étudiants.</h2>
+      </div>
+
+      <div class="audience__grid">
+        <article class="segment">
+          <div class="segment__icon">
+            <i class="ti ti-school" aria-hidden="true"></i>
+          </div>
+          <h3 class="segment__name">Écoles supérieures</h3>
+          <p class="segment__line">Une vue claire par étudiant pour les équipes pédagogiques.</p>
+        </article>
+
+        <article class="segment">
+          <div class="segment__icon">
+            <i class="ti ti-briefcase" aria-hidden="true"></i>
+          </div>
+          <h3 class="segment__name">CFA &amp; alternance</h3>
+          <p class="segment__line">Le lien école–entreprise et le suivi des alternants, centralisés.</p>
+        </article>
+
+        <article class="segment">
+          <div class="segment__icon">
+            <i class="ti ti-clipboard-check" aria-hidden="true"></i>
+          </div>
+          <h3 class="segment__name">Équipes scolarité</h3>
+          <p class="segment__line">Absences, justificatifs et preuves prêts pour le contrôle.</p>
+        </article>
+      </div>
     </section>
-
-    <div class="cyber-grid cyber-grid--compact">
-      <div class="cyber-card cyber-card--student">
-        <div class="cyber-icon">
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-            <rect x="14" y="14" width="36" height="36" rx="12" stroke="currentColor" stroke-width="1.8"/>
-            <circle cx="32" cy="27" r="6" stroke="currentColor" stroke-width="1.8"/>
-            <path d="M22 43C24.2 37.8 28 35 32 35C36 35 39.8 37.8 42 43" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <h3 class="cyber-title">FICHE ÉTUDIANT</h3>
-        <p class="cyber-desc">Absences, notes, documents et historique dans une même lecture.</p>
-      </div>
-
-      <div class="cyber-card cyber-card--attendance">
-        <div class="cyber-icon">
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-            <path d="M18 42L26 34L31 39L44 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M18 20H46" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.45"/>
-            <path d="M18 28H34" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.45"/>
-            <circle cx="44" cy="24" r="4" fill="currentColor"/>
-          </svg>
-        </div>
-        <h3 class="cyber-title">ABSENCES</h3>
-        <p class="cyber-desc">Alertes et assiduité lisibles sans changer de fenêtre.</p>
-      </div>
-
-      <div class="cyber-card cyber-card--results">
-        <div class="cyber-icon">
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-            <rect x="18" y="14" width="24" height="30" rx="6" stroke="currentColor" stroke-width="1.8"/>
-            <path d="M24 24H36" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-            <path d="M24 31H36" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.55"/>
-            <path d="M24 38H32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.55"/>
-            <path d="M42 21L46 25L42 29" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <h3 class="cyber-title">NOTES & BULLETINS</h3>
-        <p class="cyber-desc">Résultats, évaluations et bulletins reliés plus clairement.</p>
-      </div>
-
-      <div class="cyber-card cyber-card--documents">
-        <div class="cyber-icon">
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-            <path d="M18 24C18 20.6863 20.6863 18 24 18H30L34 22H40C43.3137 22 46 24.6863 46 28V40C46 43.3137 43.3137 46 40 46H24C20.6863 46 18 43.3137 18 40V24Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-            <path d="M27 33L31 37L38 29" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <h3 class="cyber-title">DOCUMENTS & PREUVES</h3>
-        <p class="cyber-desc">Pièces, commentaires et preuves utiles retrouvés plus vite.</p>
-      </div>
-    </div>
 
     {(testimonials.length > 0 || clientLogos.length > 0) && (
       <section class="social-proof">
