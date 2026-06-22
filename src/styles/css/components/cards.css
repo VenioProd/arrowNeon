@@ -10,9 +10,12 @@
   transition: border-color var(--transition-slow), box-shadow var(--transition-slow), transform var(--transition-slow);
 }
 .card:hover {
-  border-color: rgba(255,255,255,0.14);
+  border-color: var(--primary-20);
   box-shadow: 0 12px 36px rgba(0,0,0,0.35);
   transform: translateY(-4px);
+}
+:root[data-theme="light"] .card:hover {
+  box-shadow: var(--theme-box-shadow);
 }
 
 /* Highlighted / active card — accent glow only when explicitly flagged */

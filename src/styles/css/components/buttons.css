@@ -53,7 +53,7 @@
   transition: border-color var(--transition-base), background var(--transition-base), color var(--transition-base);
 }
 .btn-ghost:hover {
-  border-color: rgba(255,255,255,0.20);
+  border-color: var(--primary-30);
   background: var(--muted);
   color: var(--foreground);
 }
@@ -73,7 +73,7 @@
   transition: border-color var(--transition-base), background var(--transition-base), color var(--transition-base);
 }
 .btn-secondary:hover {
-  border-color: rgba(255,255,255,0.20);
+  border-color: var(--primary-30);
   background: var(--muted);
   color: var(--foreground);
 }
