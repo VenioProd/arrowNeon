@@ -266,10 +266,13 @@
                         <p style="margin-bottom: 20px;">
                             Remplissez le formulaire ci-dessous et notre équipe vous contactera dans les 24h.
                         </p>
-                        <div class="input-group">
-                            <input type="email" class="input-field" placeholder="Votre email">
-                        </div>
-                        <button class="btn-primary" style="width: 100%;">Envoyer</button>
+                        <div data-arrow-feedback aria-live="polite"></div>
+                        <form data-arrow-form="inscription">
+                            <div class="input-group">
+                                <input type="email" name="email" class="input-field" placeholder="Votre email" required>
+                            </div>
+                            <button type="submit" class="btn-primary" style="width: 100%;">Envoyer</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -318,6 +321,8 @@
 
     <script src="js/main.js"></script>
     <script src="js/components/modal.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/form.js"></script>
 </body>
 </html>
 

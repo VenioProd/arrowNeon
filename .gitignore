@@ -1,0 +1,14 @@
+# Dépendances
+node_modules/
+
+# Secrets / configuration locale
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
