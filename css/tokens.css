@@ -1,0 +1,260 @@
+/* ==========================================================================
+   NEON GRID — Design Tokens
+   Variables CSS extraites du prototype Arrow/Neon (valeurs 100% réelles,
+   vérifiées par audit adverse + grep). Voir DESIGN-SYSTEM.md.
+
+   Import : charger AVANT les autres CSS, ou fusionner dans le :root du thème.
+   Astuce opacités : utiliser rgba(var(--neon-primary-rgb), <alpha>) plutôt
+   que d'importer chaque variante une à une.
+   ========================================================================== */
+
+:root {
+  /* --- Couleurs de marque --- */
+  --neon-color-primary: #0080FF; /* Bleu primaire Arrow Blue — couleur de marque, texte body par defaut, titres, bordures pleines, glows. Base de TOUTES les variantes rgba ci-dessous. */
+  --neon-color-primary-rgb: 0, 128, 255; /* Triplet RGB du primaire, a utiliser dans rgba(var(--neon-color-primary-rgb), <alpha>) pour deriver toutes les opacites de maniere centralisee. */
+  --neon-color-primary-dark: #0066FF; /* Bleu secondaire fonce — fin des degrades du logo (.cyber-logo) et de la .progress-bar. */
+
+  /* --- Couleurs accent --- */
+  --neon-color-accent-cyan: #00D9FF; /* Cyan neon — accent du Mode Brutal: bordures/titres .brutal-*, fleche SVG du select (inputs.css), titres section components-demo. */
+  --neon-color-accent-cyan-rgb: 0, 217, 255; /* Triplet RGB du cyan pour deriver les opacites brutal via rgba(). */
+  --neon-color-accent-magenta: #FF007F; /* Rose magenta — accent secondaire Mode Brutal: .brutal-modal-close, .brutal-mode-cta, fin degrade titres brutal, .brutal-usp-badge. */
+  --neon-color-icon-gold: #FFD700; /* Or jaune — remplissage/contour/drop-shadow des 8 icones SVG des .cyber-card (index.html). SEULE rupture chromatique avec le bleu: incoherent avec le design system, a normaliser cote Arrow. */
+
+  /* --- Couleur sémantique --- */
+  --neon-color-card-default: rgba(0, 128, 255, 0.6); /* Valeur par defaut de la custom property runtime --card-neon-color (surchargee par etudiant). Pilote la couleur de glow lateral des .arrow-student-card; fallbacks degressifs 0.6/0.4/0.2. */
+
+  /* --- Bleu primaire — échelle d'opacité --- */
+  --neon-primary-a02: rgba(0, 128, 255, 0.02); /* Fond ultra-leger des .cyber-card et couleur des scanlines (repeating-linear-gradient). */
+  --neon-primary-a05: rgba(0, 128, 255, 0.05); /* Fond hover .cyber-card, fond .input-field/.checkbox-input/.radio-input, fond .footer. */
+  --neon-primary-a08: rgba(0, 128, 255, 0.08); /* Fond conteneurs: .hud-stats, .establishment-card, .about-section, .blog-card, .pricing-note, .form-container, .arrow-search-input. */
+  --neon-primary-a10: rgba(0, 128, 255, 0.1); /* Fond .pricing-card/.card/.arrow-neon-card, fond .alert base, .btn-icon, .btn-secondary:hover, input-field:focus. */
+  --neon-primary-a12: rgba(0, 128, 255, 0.12); /* Fond hover .establishment-card/.blog-card, fond focus .arrow-search-input. */
+  --neon-primary-a15: rgba(0, 128, 255, 0.15); /* Fond boutons translucides: .cyber-button, .btn-primary, .btn-small, .form-button, .calendly-link, .arrow-add-button; hover .pricing-card. */
+  --neon-primary-a18: rgba(0, 128, 255, 0.18); /* Fond carte tarifaire mise en avant .pricing-card.featured. */
+  --neon-primary-a20: rgba(0, 128, 255, 0.2); /* Fond .badge base, .blog-category, .arrow-student-initials, .progress-container. */
+  --neon-primary-a22: rgba(0, 128, 255, 0.22); /* Fond hover de la carte tarifaire mise en avant .pricing-card.featured:hover. */
+  --neon-primary-a25: rgba(0, 128, 255, 0.25); /* Hover boutons (.calendly-link, .arrow-add-button, .btn-icon) et bordure legere .arrow-search-card/.arrow-student-card. */
+  --neon-primary-a30: rgba(0, 128, 255, 0.3); /* Bordure standard conteneurs (.establishment-card, .about-section, .blog-card, .form-container, .input-field, .card, .nav-container) + shine diagonal .cyber-card:before. */
+  --neon-primary-a40: rgba(0, 128, 255, 0.4); /* Bordure forte: .hud-stats, .cyber-card, .pricing-card, .form-input/.form-textarea/.form-select, .arrow-neon-card/.arrow-neon-average. */
+  --neon-primary-a45: rgba(0, 128, 255, 0.45); /* Drop-shadow du titre de page Arrow (.arrow-page-title filter). */
+  --neon-primary-a50: rgba(0, 128, 255, 0.5); /* Separateurs (.stat-item::after, .divider), bordures hover cartes, text-shadow titres, box-shadow .modal/.comparison-slider. */
+  --neon-primary-a60: rgba(0, 128, 255, 0.6); /* Glow/hover: drop-shadow .cyber-logo, box-shadow hover boutons, bordure hover .pricing-card, fallback --card-neon-color niveau 1. */
+  --neon-primary-a70: rgba(0, 128, 255, 0.7); /* Texte secondaire: .stat-label, .comparison-subtitle, .footer-link. */
+  --neon-primary-a80: rgba(0, 128, 255, 0.8); /* Texte courant: .price-amount, .card-content, .modal-content, .nav-link; text-shadow glow signature (couche interne 20px). */
+  --neon-primary-a85: rgba(0, 128, 255, 0.85); /* Texte descriptions: .cyber-desc, .establishment-content li, .about-text, .blog-excerpt, .contact-info p. */
+  --neon-primary-a90: rgba(0, 128, 255, 0.9); /* Texte listes: .module-benefits-list li, .pricing-features li, .pricing-subtitle. */
+  --neon-primary-a95: rgba(0, 128, 255, 0.95); /* Texte .pricing-note (lisibilite quasi pleine). */
+  --neon-primary-a100: rgba(0, 128, 255, 1); /* Glow maximum: drop-shadow neon-pulse .cyber-logo, hover .cyber-icon/.cyber-desc, box-shadow .slider-handle. */
+
+  /* --- Cyan (mode Brutal) — opacités --- */
+  --neon-cyan-a03: rgba(0, 217, 255, 0.03); /* Fond lignes paires .brutal-comparison-table tr:nth-child(even). */
+  --neon-cyan-a05: rgba(0, 217, 255, 0.05); /* Fond .brutal-testimonial, .section et .demo-item (components-demo). */
+  --neon-cyan-a08: rgba(0, 217, 255, 0.08); /* Debut du degrade de fond .brutal-usp-card. */
+  --neon-cyan-a10: rgba(0, 217, 255, 0.1); /* Fond .brutal-hero-bg (radial), fond thead .brutal-comparison-table. */
+  --neon-cyan-a15: rgba(0, 217, 255, 0.15); /* Fond .brutal-hero-cta, balayage .brutal-usp-card:before, fond radial .brutal-final-cta. */
+  --neon-cyan-a20: rgba(0, 217, 255, 0.2); /* Bordure .section/.demo-item (demo), bordure td .brutal-comparison-table. */
+  --neon-cyan-a30: rgba(0, 217, 255, 0.3); /* Bordure .brutal-usp-card, .brutal-testimonial, th .brutal-comparison-table. */
+  --neon-cyan-a60: rgba(0, 217, 255, 0.6); /* Glow brutal: box-shadow .brutal-modal-container (glow max), drop-shadow .brutal-hero-title/.brutal-final-title, text-shadow .brutal-section-title. */
+  --neon-cyan-a70: rgba(0, 217, 255, 0.7); /* Texte .brutal-section-subtitle, composant-label demo, contenu modal/temoignage. */
+  --neon-cyan-a80: rgba(0, 217, 255, 0.8); /* Texte .brutal-usp-intro, .brutal-final-subtitle, text-shadow H1 components-demo. */
+  --neon-cyan-a85: rgba(0, 217, 255, 0.85); /* Texte .brutal-usp-desc. */
+  --neon-cyan-a90: rgba(0, 217, 255, 0.9); /* Texte .brutal-hero-subtitle, .brutal-usp-benefit, .brutal-testimonial-quote. */
+  --neon-cyan-a40: rgba(0, 217, 255, 0.4); /* Glow hover carte USP brutal (brutal-modal.css:366) */
+
+  /* --- Magenta (mode Brutal) — opacités --- */
+  --neon-magenta-a15: rgba(255, 0, 127, 0.15); /* Fond .brutal-mode-cta. */
+  --neon-magenta-a20: rgba(255, 0, 127, 0.2); /* Fond .brutal-modal-close et .brutal-usp-badge. */
+  --neon-magenta-a60: rgba(255, 0, 127, 0.6); /* Box-shadow hover .brutal-modal-close et .brutal-mode-cta. */
+
+  /* --- Blanc — opacités --- */
+  --neon-white-a10: rgba(255, 255, 255, 0.1); /* Fond .hp-nav-item (ancienne plateforme). */
+  --neon-white-a20: rgba(255, 255, 255, 0.2); /* Bordure .hp-nav-item et inset highlight box-shadow .cyber-card:hover (inset 0 1px 0). */
+
+  /* --- Fonds --- */
+  --neon-color-bg-base: #000; /* Noir absolu — fond global du body, fond .modal, couleur texte sur boutons/badges au hover (texte sur fond neon). */
+  --neon-bg-black-a10: rgba(0, 0, 0, 0.1); /* Box-shadow .hp-table-container (ancienne plateforme). */
+  --neon-bg-black-a20: rgba(0, 0, 0, 0.2); /* Box-shadow .hp-navbar (ancienne plateforme). */
+  --neon-bg-black-a30: rgba(0, 0, 0, 0.3); /* Fond .value-card, box-shadow .comparison-label. */
+  --neon-bg-black-a40: rgba(0, 0, 0, 0.4); /* Fond .brutal-problem-quote. */
+  --neon-bg-black-a50: rgba(0, 0, 0, 0.5); /* Fond .form-input/.form-textarea/.form-select. */
+  --neon-bg-black-a55: rgba(0, 0, 0, 0.55); /* Fond .arrow-search-card et .arrow-student-card. */
+  --neon-bg-black-a70: rgba(0, 0, 0, 0.7); /* Fond au focus .form-input/.form-textarea/.form-select. */
+  --neon-bg-black-a80: rgba(0, 0, 0, 0.8); /* Fond .nav-container (barre fixe). */
+  --neon-bg-black-a90: rgba(0, 0, 0, 0.9); /* Fond .modal-overlay (overlay modal standard). */
+  --neon-bg-black-a95: rgba(0, 0, 0, 0.95); /* Fond .nav-menu mobile ouvert. */
+  --neon-color-bg-brutal: #050510; /* Bleu nuit tres fonce — fond des sections Mode Brutal (.brutal-modal-container, .brutal-usp-section...). */
+  --neon-brutal-a98: rgba(5, 5, 16, 0.98); /* Fond .brutal-modal-overlay. */
+  --neon-color-bg-brutal-2: #0a0a15; /* Bleu nuit secondaire — fin des degrades de section brutal. */
+  --neon-color-bg-arrow: #0a0e1a; /* Bleu tres fonce — fond de l'interface Arrow reproduite (.arrow-interface). */
+
+  /* --- Textes --- */
+  --neon-color-text-sky: #87ceeb; /* Bleu ciel clair — texte secondaire interface Arrow: .arrow-search-title/.input, .arrow-info-value, .arrow-neon-label, auteur temoignage, milieu degrade .arrow-page-title. */
+  --neon-sky-a50: rgba(135, 206, 235, 0.5); /* Placeholder .arrow-search-input::placeholder. */
+  --neon-sky-a70: rgba(135, 206, 235, 0.7); /* Texte .arrow-info-label. */
+  --neon-sky-a80: rgba(135, 206, 235, 0.8); /* Texte .arrow-neon-unit. */
+  --neon-color-text-muted: #a0aec0; /* Gris bleute — texte muet: .arrow-result-count, .arrow-student-number, .arrow-student-email. */
+  --neon-color-text-white: #fff; /* Blanc — texte .label-left, navbar inline, et UI ancienne plateforme HP. A reserver aux fonds neon/sombres satures. */
+
+  /* --- Feedback — succès --- */
+  --neon-color-success: #00FF64; /* Vert neon succes — .badge-success, .alert-success, metrique presence .arrow-neon-presence. */
+  --neon-success-a05: rgba(0, 255, 100, 0.05); /* Fond .arrow-neon-presence. */
+  --neon-success-a10: rgba(0, 255, 100, 0.1); /* Fond .alert-success, inset box-shadow .arrow-neon-presence. */
+  --neon-success-a15: rgba(0, 255, 100, 0.15); /* Inset box-shadow hover .arrow-neon-presence. */
+  --neon-success-a20: rgba(0, 255, 100, 0.2); /* Fond .badge-success, box-shadow externe .arrow-neon-presence. */
+  --neon-success-a40: rgba(0, 255, 100, 0.4); /* Bordure .arrow-neon-presence, text-shadow valeur (couche 0.4). */
+  --neon-success-a50: rgba(0, 255, 100, 0.5); /* Box-shadow hover .arrow-neon-presence. */
+  --neon-success-a60: rgba(0, 255, 100, 0.6); /* Text-shadow valeur .arrow-neon-presence. */
+  --neon-success-a95: rgba(0, 255, 100, 0.95); /* Texte .brutal-arrow-platform (colonne Arrow du tableau brutal). */
+  --neon-color-success-badge: #10b981; /* Vert emeraude — texte du badge statut etudiant ACTIF (.arrow-badge). Teinte distincte du vert neon, plus sobre. */
+  --neon-success-badge-a20: rgba(16, 185, 129, 0.2); /* Fond du badge statut actif .arrow-badge. */
+  --neon-success-badge-a60: rgba(16, 185, 129, 0.6); /* Bordure du badge statut actif .arrow-badge. */
+
+  /* --- Feedback — erreur --- */
+  --neon-color-error: #FF0064; /* Rose erreur — .badge-error, .alert-error, .brutal-problem-card/.brutal-problem-title. */
+  --neon-error-a05: rgba(255, 0, 100, 0.05); /* Fond .brutal-testimonial-before. */
+  --neon-error-a08: rgba(255, 0, 100, 0.08); /* Fond .brutal-problem-card. */
+  --neon-error-a10: rgba(255, 0, 100, 0.1); /* Fond .badge-error et .alert-error. */
+  --neon-error-a20: rgba(255, 0, 100, 0.2); /* Fond .badge-error (badges.css). */
+  --neon-error-a30: rgba(255, 0, 100, 0.3); /* Bordure .brutal-problem-card, box-shadow hover. */
+  --neon-error-a40: rgba(255, 0, 100, 0.4); /* Bordure .brutal-testimonial-before. */
+  --neon-error-a80: rgba(255, 0, 100, 0.8); /* Texte .brutal-problem-quote. */
+  --neon-color-error-coral: rgba(255, 100, 100, 0.9); /* Rouge corail texte — .brutal-problem-desc, .brutal-old-platform, .brutal-testimonial-before quote. (Aucune variante opaque presente dans le code.) */
+  --neon-color-error-badge: #ef4444; /* Rouge vif — texte badge statut ABANDONNE (.arrow-badge.abandonne). */
+  --neon-error-badge-a20: rgba(239, 68, 68, 0.2); /* Fond du badge .arrow-badge.abandonne. */
+  --neon-error-badge-a60: rgba(239, 68, 68, 0.6); /* Bordure du badge .arrow-badge.abandonne. */
+
+  /* --- Feedback — warning --- */
+  --neon-color-warning: #FFC800; /* Jaune dore — .badge-warning et .alert-warning. */
+  --neon-warning-a10: rgba(255, 200, 0, 0.1); /* Fond .alert-warning. */
+  --neon-warning-a20: rgba(255, 200, 0, 0.2); /* Fond .badge-warning. */
+  --neon-color-warning-badge: #fbbf24; /* Jaune ambre — texte badge statut EN ATTENTE (.arrow-badge.en-attente). */
+  --neon-warning-badge-a20: rgba(251, 191, 36, 0.2); /* Fond du badge .arrow-badge.en-attente. */
+  --neon-warning-badge-a60: rgba(251, 191, 36, 0.6); /* Bordure du badge .arrow-badge.en-attente. */
+
+  /* --- Typographie — familles --- */
+  --neon-font-display: 'Orbitron', sans-serif; /* Police titres/display cyberpunk. Graisses importees: 400, 700, 900 uniquement (Google Fonts). Tout font-weight non importe retombe sur 400 — voir notes. */
+  --neon-font-body: 'Rajdhani', sans-serif; /* Police corps de texte et labels (defaut du body). Graisses importees: 300, 400, 500, 600, 700. */
+  --neon-font-arrow: 'League Spartan', sans-serif; /* Police de l'interface Arrow reproduite (.arrow-*). Graisses importees 400-900; seules 600/700/900 reellement utilisees. */
+  --neon-font-legacy: Arial, sans-serif; /* Police SYSTEME volontaire pour l'UI 'HyperPlanning' du comparateur. Hors design system NEON GRID — ne pas reutiliser dans Arrow. */
+  --neon-font-import: https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=League+Spartan:wght@400;500;600;700;800;900&display=swap; /* Source UNIQUE d'import (@import en css/main.css ligne 1). Aucun <link> preconnect dans les <head>. Aucun @font-face self-hosted — dependance totale au CDN Google Fonts. */
+
+  /* --- Typographie — tailles --- */
+  --neon-font-size-xs: 11px; /* Plus petite taille — badges/labels lib composants (.badge, .input-label, .btn-small responsive, .brutal-usp-badge). */
+  --neon-font-size-sm: 12px; /* Labels uppercase: .stat-label, .input-label, .blog-category, .arrow-neon-label, .btn-small, .pricing-badge. */
+  --neon-font-size-base: 15px; /* Texte courant cartes — .cyber-desc (line-height 1.6). */
+  --neon-font-size-md: 16px; /* Taille de base UI: .btn-primary, .form-label, .form-input, .input-field, .nav-link, .benefits-subtitle, .arrow-search-input, .arrow-add-button. */
+  --neon-font-size-lg: 18px; /* Sous-titres et boutons forts — .form-button, .establishment-content h3, .footer-section-title, .brutal-hero-cta, .brutal-mode-cta. */
+  --neon-font-size-xl: 20px; /* Titres de carte — .cyber-title, .cyber-button, .value-card h3, .card-title, .arrow-search-title, .brutal-problem-title. */
+  --neon-font-size-2xl: 24px; /* Titres editoriaux — .blog-title, .brutal-usp-title. */
+  --neon-font-size-3xl: 26px; /* Titre de prix — .pricing-title. */
+  --neon-font-size-4xl: 28px; /* Titres section — .establishment-title, .nav-logo, .cyber-tagline, .modal-title, .arrow-neon-value (1.75rem). */
+  --neon-font-size-5xl: 32px; /* Titres de page — .about-title, .contact-info h2, .brutal-modal-close, .arrow-page-title (2rem), .brutal-section-title (36px proche). */
+  --neon-font-size-6xl: 36px; /* Grandes valeurs/titres — .stat-value, .brutal-section-title, .section-title demo. */
+  --neon-font-size-7xl: 42px; /* Titre CTA final brutal — .brutal-final-title. */
+  --neon-font-size-8xl: 48px; /* Titre hero brutal — .brutal-hero-title (et responsive du .cyber-logo a 480px). */
+  --neon-font-size-9xl: 56px; /* Montant du prix — .price-value (double text-shadow neon). */
+  --neon-font-size-10xl: 60px; /* Titre de comparaison — .comparison-title (vs HyperPlanning). */
+  --neon-font-size-display: 150px; /* Logo hero H1 — .cyber-logo desktop (responsive 100/70/48/36px). */
+
+  /* --- Typographie — graisses --- */
+  --neon-font-weight-normal: 400; /* Graisse normale (defaut body, et fallback implicite de nombreux titres Orbitron sans weight explicite). */
+  --neon-font-weight-medium: 500; /* Rajdhani medium — .stat-label. */
+  --neon-font-weight-semibold: 600; /* Rajdhani/League Spartan semibold — .nav-link, .form-label, .blog-category, .arrow-add-button, .arrow-neon-label, .arrow-badge. */
+  --neon-font-weight-bold: 700; /* Orbitron/League Spartan bold — .cyber-title, boutons, sous-titres, .arrow-search-title, .arrow-student-name. */
+  --neon-font-weight-black: 900; /* Orbitron/League Spartan black — .cyber-logo, .stat-value, .price-value, titres hero/section, .arrow-neon-value, .arrow-page-title. */
+
+  /* --- Typographie — letter-spacing --- */
+  --neon-letter-spacing-tight: 1px; /* Tracking leger — .form-label, .blog-category, .alert-title, .blog-title. */
+  --neon-letter-spacing-sm: 1.5px; /* Tracking sous-titres — .nav-link, .benefits-subtitle. */
+  --neon-letter-spacing-md: 2px; /* Tracking labels/titres cartes — .cyber-title, .input-label, .card-title, .modal-title, .footer-section-title, .badge, .brutal-usp-badge. */
+  --neon-letter-spacing-lg: 2.5px; /* Tracking .stat-label. */
+  --neon-letter-spacing-xl: 3px; /* Tracking titres forts — .btn-primary, .establishment-title, .pricing-title, .about-title, .contact-info h2, .comparison-label, .brutal-section-title, boutons form. */
+  --neon-letter-spacing-2xl: 4px; /* Tracking large — .cyber-button, .comparison-title, .brutal-hero-eyebrow. */
+  --neon-letter-spacing-3xl: 6px; /* Tracking maximal — .cyber-tagline (desktop). */
+  --neon-letter-spacing-em-sm: 0.05em; /* Tracking relatif Arrow — .arrow-add-button, .arrow-student-name, .arrow-neon-label, .arrow-badge. */
+  --neon-letter-spacing-em-md: 0.08em; /* Tracking relatif Arrow — .arrow-search-title. */
+  --neon-letter-spacing-em-lg: 0.15em; /* Tracking relatif Arrow — .arrow-page-title (uppercase). */
+
+  /* --- Typographie — line-height --- */
+  --neon-line-height-tight: 1; /* Leading serre des grandes valeurs — .stat-value, .price-value, .arrow-neon-value, .brutal-modal-close. */
+  --neon-line-height-snug: 1.1; /* Leading du logo hero — .cyber-logo. */
+  --neon-line-height-heading: 1.2; /* Leading titres — .establishment-title, .pricing-title, .about-title, .contact-info h2, .arrow-student-name, .brutal-hero-title. */
+  --neon-line-height-body: 1.6; /* Leading texte courant — .cyber-desc. */
+
+  /* --- Espacements --- */
+  --neon-space-2xs: 8px; /* Plus petit gap — .pricing-title gap interne (.pricing-header gap 8px). */
+  --neon-space-xs: 10px; /* Petit gap — .price-value gap (10px). */
+  --neon-space-sm: 15px; /* Padding champ formulaire (.form-input padding 15px) et gouttiere mobile 480px. */
+  --neon-space-md: 20px; /* Gouttiere/padding tablette (768px) — niveau d'espacement intermediaire courant. */
+  --neon-space-lg: 25px; /* Gap de grille en responsive (≤1024/768px), gouttiere reduite. */
+  --neon-space-xl: 30px; /* Gap principal des grilles (.cyber-grid, .modules-grid, .value-grid, .blog-grid) et gouttiere desktop reduite (≤1400px). */
+  --neon-space-2xl: 35px; /* Gap large en responsive (959,994). */
+  --neon-space-3xl: 40px; /* Gap colonnes (.establishment-grid, .pricing-container) ET gouttiere laterale de page standard (padding 0 40px). */
+  --neon-space-4xl: 60px; /* Plus grand gap — .hud-stats (gap 60px). */
+  --neon-space-page-pad-bottom: 80px; /* Padding bas des conteneurs de page (padding 0 40px 80px). */
+  --neon-space-section-pad: 40px; /* Padding vertical de page standard (.main-container padding 40px). Echelle de gouttiere: 40 -> 30 -> 20 -> 15px par breakpoint. */
+
+  /* --- Largeurs de conteneur --- */
+  --neon-container-contact: 900px; /* Largeur max etroite — page Contact, mesure des sous-titres hero brutal. */
+  --neon-container-editorial: 1200px; /* Largeur max lecture/editorial — About, Blog, .brutal-modal-container. */
+  --neon-container-content: 1400px; /* Largeur max RECURRENTE et dominante (conteneur 'par defaut'): modules, etablissements, pricing, headers/grilles Arrow. */
+  --neon-container-grid: 1600px; /* Largeur max de la grille hero (.cyber-grid) et de la navigation (.nav-wrapper). */
+  --neon-container-immersive: 1800px; /* Largeur max absolue du projet — section slider de comparaison (.comparison-section). */
+  --neon-container-form: 700px; /* Largeur max du conteneur de formulaire (.form-container). */
+  --neon-container-modal: 600px; /* Largeur max de la modal standard (.modal), couplee a width:90%. */
+  --neon-container-text: 800px; /* Mesure de texte des intros centrees (.brutal-usp-intro, .brutal-final-subtitle). */
+
+  /* --- Découpes angulaires (clip-path) --- */
+  --neon-clip-10: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px)); /* Decoupe angulaire signature 6 points, biseau 10px — .input-field, .btn-icon. */
+  --neon-clip-12: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)); /* Decoupe signature, biseau 12px — .pricing-badge. */
+  --neon-clip-15: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px)); /* Decoupe signature, biseau 15px — .btn-primary. */
+  --neon-clip-20: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px)); /* Decoupe signature, biseau 20px — .hud-stats, .cyber-button, .form-button, .card, .pricing-note, .brutal-usp-card. */
+  --neon-clip-25: polygon(0 0, calc(100% - 25px) 0, 100% 25px, 100% 100%, 25px 100%, 0 calc(100% - 25px)); /* Decoupe signature, biseau 25px — .cyber-card, .establishment-card, .pricing-card, .blog-card, .about-section, .form-container. */
+  --neon-clip-30: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 30px 100%, 0 calc(100% - 30px)); /* Decoupe signature, biseau 30px — .modal, .brutal-modal-container. */
+
+  /* --- Rayons arrondis --- */
+  --neon-radius-circle: 50%; /* Cercles : photos, initiales, radio, loader, slider handle (×8 dans le code) */
+  --neon-radius-card: 8px; /* Cartes métriques neon (.arrow-neon-card, main.css:2104) */
+  --neon-radius-md: 10px; /* Sections de démo (.section/.demo-item, components-demo.html) */
+
+  /* --- Glows (lueurs néon) --- */
+  --neon-glow-text: 0 0 20px rgba(0, 128, 255, 0.8), 0 0 40px rgba(0, 128, 255, 0.4); /* Text-shadow neon signature DOUBLE (couche interne 20px + halo 40px). Applique aux titres bleus. Variantes d'intensite a 30/15/10/8px. */
+  --neon-glow-icon: drop-shadow(0 0 20px rgba(0, 128, 255, 0.8)); /* Filtre drop-shadow des icones (.cyber-icon, .module-icon...). Hover: 0 0 30px + scale(1.1) translateZ(20px). */
+  --neon-glow-card-hover: 0 20px 60px rgba(0, 128, 255, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 100px rgba(0, 128, 255, 0.4); /* Box-shadow 3D triple de .cyber-card:hover (elevation + highlight inset + halo 100px). */
+  --neon-glow-button-hover: 0 0 40px rgba(0, 128, 255, 0.6); /* Box-shadow glow au hover des boutons (.cyber-button; .btn-primary utilise 30px). Souvent double avec inset 0 0 40px rgba(0,128,255,0.2). */
+  --neon-glow-input-focus: 0 0 20px rgba(0, 128, 255, 0.3); /* Box-shadow focus des inputs lib composants (form.css utilise rgba 0.5). */
+  --neon-glow-brutal-cyan: 0 0 80px rgba(0, 217, 255, 0.6); /* Glow maximal du projet — box-shadow .brutal-modal-container (cyan). Drop-shadow titres brutal: 0 0 40px rgba(0,217,255,0.6). */
+  --neon-glow-success: 0 0 20px rgba(0, 255, 100, 0.4); /* Glow vert presence — box-shadow/text-shadow .arrow-neon-presence (halo de validation). */
+
+  /* --- Flous (backdrop-filter) --- */
+  --neon-backdrop-blur: blur(10px); /* Backdrop-filter par defaut (glassmorphism) de la majorite des surfaces. */
+  --neon-backdrop-blur-hud: blur(15px); /* Backdrop-filter renforce — .hud-stats. */
+  --neon-backdrop-blur-nav: blur(20px); /* Backdrop-filter maximal — .nav-container (barre fixe). */
+  --neon-backdrop-blur-overlay: blur(5px); /* Backdrop-filter leger — .modal-overlay. */
+
+  /* --- Durées de transition --- */
+  --neon-duration-fast: 0.3s; /* Duree de transition par defaut (transition: all 0.3s) — hovers standards, boutons, cartes simples. */
+  --neon-duration-base: 0.4s; /* Duree des interactions cartes/icones/inputs (.cyber-card, .cyber-icon, ::before bouton scaleX). */
+  --neon-duration-slow: 0.5s; /* Duree des wipes/balayages — .brutal-usp-card:before (transition left 0.5s). */
+  --neon-duration-slower: 0.6s; /* Duree du shine diagonal — .cyber-card:before (transition all 0.6s ->left:100%). */
+
+  /* --- Courbes d'accélération --- */
+  --neon-easing-signature: cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Easing rebond signature, RESERVE a .cyber-card (transition: all 0.4s <easing>). Donne l'effet 'pop' 3D au survol. */
+  --neon-easing-default: ease; /* Easing par defaut explicite ponctuel (ex .arrow-neon-card transition all 0.3s ease). */
+
+  /* --- Couches z-index --- */
+  --neon-z-base: 0; /* Fond geometrique (.geometric-bg) — couche de base. */
+  --neon-z-content: 1; /* Contenu courant au-dessus des pseudo-elements decoratifs (z-index:-1). */
+  --neon-z-raised: 10; /* Elements souleves dans un conteneur — .hud-item content, .pricing-badge, .comparison-content, .brutal-modal-close. */
+  --neon-z-scanlines: 100; /* Overlay scanlines plein ecran (.scanlines, opacity 0.5). */
+  --neon-z-tooltip: 1000; /* Tooltips (.tooltip) et HUD fixe (.hud-stats). */
+  --neon-z-nav: 2000; /* Barre de navigation fixe (.nav-container) et modal standard (.modal-overlay). */
+  --neon-z-brutal-modal: 3000; /* Modal Mode Brutal plein ecran (.brutal-modal-overlay) — couche la plus haute. */
+
+  /* --- Points de rupture responsive --- */
+  --neon-bp-xl: 1400px; /* Breakpoint @media (max-width: 1400px) — premiere reduction (echelle gouttiere/typo). */
+  --neon-bp-lg: 1024px; /* Breakpoint @media (max-width: 1024px) — tablette paysage / petit desktop. */
+  --neon-bp-md: 768px; /* Breakpoint @media (max-width: 768px) — tablette portrait, bascule menu mobile/burger. */
+  --neon-bp-sm: 480px; /* Breakpoint @media (max-width: 480px) — mobile (plus petite gouttiere 15px, plus petites tailles). */
+
+}
