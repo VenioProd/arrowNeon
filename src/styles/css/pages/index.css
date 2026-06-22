@@ -377,3 +377,200 @@
 :root[data-theme="light"] .cyber-button:hover {
     color: #fff;
 }
+
+/* ── Section « Comment ça marche » — 3 étapes (dark) ───────────────── */
+.how {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: clamp(40px, 7vw, 72px) 0 clamp(32px, 5vw, 48px);
+}
+
+.how__head {
+    max-width: 680px;
+    margin: 0 auto clamp(32px, 5vw, 48px);
+    text-align: center;
+}
+
+.how__head .eyebrow {
+    margin: 0 0 14px;
+    color: var(--primary);
+}
+
+.how__head h2 {
+    margin: 0;
+    font-size: clamp(26px, 3.6vw, 38px);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--foreground);
+}
+
+.how__steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.how-step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: clamp(20px, 2.4vw, 26px);
+    background: var(--card);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+}
+
+/* Connecteur fin entre les étapes (desktop) */
+.how-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -24px;
+    width: 24px;
+    height: 0.5px;
+    background: var(--border);
+    transform: translateY(-50%);
+}
+
+.how-step__num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--primary-15);
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.how-step__txt h3 {
+    margin: 0 0 6px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--card-foreground);
+}
+
+.how-step__txt p {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--muted-foreground);
+}
+
+.how-step__peek {
+    margin-top: auto;
+}
+
+/* Réduction des mocks pour tenir dans une colonne sur 3 */
+.how-step__peek .mock-fiche,
+.how-step__peek .mock-alerts,
+.how-step__peek .how-proof {
+    max-width: 100%;
+}
+
+.how-step__peek .mock-fiche__stats {
+    padding: 12px 14px;
+    gap: 8px;
+}
+
+.how-step__peek .mock-stat {
+    padding: 10px 12px;
+}
+
+.how-step__peek .mock-stat b {
+    font-size: 18px;
+}
+
+/* Étape 3 — mock « décisions & preuves » (réutilise le style carte mock) */
+.how-proof {
+    background: var(--card);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    width: 100%;
+    overflow: hidden;
+    font-family: var(--font-body);
+}
+
+.how-proof__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 16px;
+    border-bottom: 0.5px solid var(--border);
+}
+
+.how-proof__head b {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--card-foreground);
+}
+
+.how-proof__count {
+    background: var(--primary-15);
+    color: var(--primary);
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 999px;
+}
+
+.how-proof ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.how-proof__row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 16px;
+    border-top: 0.5px solid var(--border);
+    font-size: 13.5px;
+}
+
+.how-proof__dot {
+    flex-shrink: 0;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--muted-foreground);
+}
+
+.how-proof__dot--success { background: var(--success); }
+
+.how-proof__label {
+    flex: 1;
+    min-width: 0;
+    font-weight: 700;
+    color: var(--card-foreground);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.how-proof__val {
+    margin-left: auto;
+    flex-shrink: 0;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--success);
+    white-space: nowrap;
+}
+
+@media (max-width: 860px) {
+    .how__steps {
+        grid-template-columns: 1fr;
+    }
+    .how-step:not(:last-child)::after {
+        display: none;
+    }
+}

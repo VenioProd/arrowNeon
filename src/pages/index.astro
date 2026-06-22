@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import FicheEtudiant from '../components/mock/FicheEtudiant.astro'
+import AlertsList from '../components/mock/AlertsList.astro'
+import StepPeek from '../components/mock/StepPeek.astro'
 import { testimonials, clientLogos } from '../data/testimonials'
 
 const jsonLd = {
@@ -101,6 +103,66 @@ const jsonLd = {
           <span class="brutal-cta-icon">↗</span>
         </button>
       </div>
+    </section>
+
+    <section class="how" id="comment">
+      <div class="how__head">
+        <p class="eyebrow">Comment ça marche</p>
+        <h2>De données éparpillées à une décision claire, en 3 temps.</h2>
+      </div>
+      <ol class="how__steps">
+        <li class="how-step">
+          <span class="how-step__num">1</span>
+          <div class="how-step__txt">
+            <h3>Centraliser</h3>
+            <p>Toutes les données d'un étudiant au même endroit.</p>
+          </div>
+          <div class="how-step__peek">
+            <StepPeek title="Vue étudiant"><FicheEtudiant /></StepPeek>
+          </div>
+        </li>
+        <li class="how-step">
+          <span class="how-step__num">2</span>
+          <div class="how-step__txt">
+            <h3>Repérer</h3>
+            <p>Les alertes remontent qui décroche, automatiquement.</p>
+          </div>
+          <div class="how-step__peek">
+            <StepPeek title="Alertes"><AlertsList /></StepPeek>
+          </div>
+        </li>
+        <li class="how-step">
+          <span class="how-step__num">3</span>
+          <div class="how-step__txt">
+            <h3>Décider / Prouver</h3>
+            <p>Justifiez, exportez, suivez les décisions sans ressaisie.</p>
+          </div>
+          <div class="how-step__peek">
+            <StepPeek title="Décisions & preuves">
+              <div class="how-proof" aria-label="Décisions et preuves (aperçu produit)">
+                <div class="how-proof__head"><b>Décisions &amp; preuves</b><span class="how-proof__count">3</span></div>
+                <ul>
+                  <li class="how-proof__row">
+                    <i class="how-proof__dot how-proof__dot--success" aria-hidden="true"></i>
+                    <span class="how-proof__label">Bulletin S1</span>
+                    <span class="how-proof__val">Exporté</span>
+                  </li>
+                  <li class="how-proof__row">
+                    <i class="how-proof__dot how-proof__dot--success" aria-hidden="true"></i>
+                    <span class="how-proof__label">Convention</span>
+                    <span class="how-proof__val">Signée</span>
+                  </li>
+                  <li class="how-proof__row">
+                    <i class="how-proof__dot how-proof__dot--success" aria-hidden="true"></i>
+                    <span class="how-proof__label">Justificatif</span>
+                    <span class="how-proof__val">Validé</span>
+                  </li>
+                </ul>
+              </div>
+            </StepPeek>
+          </div>
+        </li>
+      </ol>
     </section>
 
     <section class="home-section-head home-section-head--compact">
