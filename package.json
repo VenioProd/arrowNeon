@@ -21,12 +21,12 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.97.1",
-    "@astrojs/node": "^10.1.4",
-    "@astrojs/react": "^5.0.7",
-    "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/node": "^11.1.5",
+    "@astrojs/react": "^6.0.5",
+    "@astrojs/sitemap": "^3.7.4",
     "@portabletext/react": "^6.2.0",
     "@sanity/client": "^7.23.0",
-    "astro": "^6.3.3",
+    "astro": "^7.3.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "resend": "^6.12.3",
@@ -34,7 +34,7 @@
     "tsx": "^4.22.3"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.9",
+    "@astrojs/check": "^0.9.10",
     "@sanity/code-input": "^7.1.6",
     "@sanity/vision": "^6.1.0",
     "@types/react": "^19.2.17",
